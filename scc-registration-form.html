@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Agreement 2026–2027 | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #2d5016;
+    --moss: #4a7c28;
+    --sage: #7aaa52;
+    --cream: #f9f5ee;
+    --warm-white: #fffef9;
+    --bark: #6b4c2a;
+    --sand: #e8dcc8;
+    --stone: #9e9484;
+    --text: #2a2318;
+    --muted: #7a6e62;
+    --accent: #c17f3a;
+    --error: #c0392b;
+    --success: #2d7a3a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background-color: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 10% 20%, rgba(74,124,40,0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(193,127,58,0.06) 0%, transparent 50%);
+  }
+
+  .page-header {
+    background: var(--forest);
+    color: white;
+    text-align: center;
+    padding: 2.5rem 1.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+  }
+
+  .page-header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    position: relative;
+  }
+
+  .page-header p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    margin-top: 0.5rem;
+    font-weight: 300;
+    position: relative;
+  }
+
+  .leaf-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0.75rem 0 0;
+    position: relative;
+  }
+
+  .leaf-divider::before, .leaf-divider::after {
+    content: '';
+    height: 1px;
+    width: 60px;
+    background: rgba(255,255,255,0.3);
+  }
+
+  .leaf-divider span { font-size: 1rem; opacity: 0.6; }
+
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .notice-box {
+    background: white;
+    border-left: 4px solid var(--sage);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  .notice-box strong { color: var(--forest); }
+
+  .section-card {
+    background: var(--warm-white);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-title .icon {
+    width: 28px;
+    height: 28px;
+    background: var(--sage);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .form-row {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-row.cols-2 { grid-template-columns: 1fr 1fr; }
+  .form-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .form-row.cols-2-1 { grid-template-columns: 2fr 1fr; }
+
+  @media (max-width: 540px) {
+    .form-row.cols-2,
+    .form-row.cols-3,
+    .form-row.cols-2-1 { grid-template-columns: 1fr; }
+  }
+
+  .field { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  label .req { color: var(--accent); margin-left: 2px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.6rem 0.85rem;
+    border: 1.5px solid var(--sand);
+    border-radius: 7px;
+    background: white;
+    color: var(--text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    width: 100%;
+    appearance: none;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(122,170,82,0.15);
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239e9484' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+    padding-right: 2.5rem;
+  }
+
+  .radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  .radio-group.horizontal {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .radio-option, .checkbox-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text);
+  }
+
+  .radio-option input, .checkbox-option input {
+    width: auto;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+    accent-color: var(--moss);
+    width: 16px;
+    height: 16px;
+  }
+
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  @media (max-width: 480px) { .schedule-grid { grid-template-columns: 1fr; } }
+
+  .schedule-col label.col-header {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--forest);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .policy-block {
+    background: var(--cream);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--sand);
+  }
+
+  .policy-block summary {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--forest);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .policy-block summary::-webkit-details-marker { display: none; }
+
+  .policy-block summary::after {
+    content: '▸';
+    color: var(--stone);
+    font-size: 0.75rem;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .policy-block[open] summary::after { transform: rotate(90deg); }
+
+  .policy-text {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .policy-text ul {
+    margin: 0.5rem 0 0 1.25rem;
+  }
+
+  .policy-text li { margin-bottom: 0.35rem; }
+
+  .initial-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 0.75rem;
+  }
+
+  .initial-row .checkbox-option {
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+
+  .payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .payment-option {
+    border: 1.5px solid var(--sand);
+    border-radius: 8px;
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .payment-option:has(input:checked) {
+    border-color: var(--sage);
+    background: rgba(122,170,82,0.05);
+  }
+
+  .payment-option input { margin-top: 0.2rem; accent-color: var(--moss); flex-shrink: 0; }
+
+  .payment-option-label { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+  .payment-option-desc { font-size: 0.8rem; color: var(--muted); margin-top: 0.2rem; line-height: 1.5; }
+
+  .zelle-detail {
+    display: none;
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(193,127,58,0.08);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--bark);
+    border: 1px solid rgba(193,127,58,0.2);
+  }
+
+  .signature-area {
+    margin-top: 1rem;
+  }
+
+  .sig-field {
+    border: 1.5px solid var(--sand);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    background: white;
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .submit-area {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  .submit-btn {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--forest);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.9rem 3rem;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(45,80,22,0.25);
+  }
+
+  .submit-btn:hover {
+    background: var(--moss);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(45,80,22,0.3);
+  }
+
+  .submit-btn:active { transform: translateY(0); }
+
+  .submit-note {
+    font-size: 0.8rem;
+    color: var(--stone);
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+    flex-wrap: wrap;
+  }
+
+  .step {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--stone);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .step-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--sand);
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .step.active .step-num { background: var(--forest); color: white; }
+  .step.active { color: var(--forest); }
+  .step-sep { color: var(--sand); font-size: 0.9rem; }
+
+  .field-hint {
+    font-size: 0.75rem;
+    color: var(--stone);
+    margin-top: 0.2rem;
+  }
+
+  hr.section-rule {
+    border: none;
+    border-top: 1px dashed var(--sand);
+    margin: 1.25rem 0;
+  }
+
+  .success-message {
+    display: none;
+    text-align: center;
+    padding: 3rem 2rem;
+    background: var(--warm-white);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+
+  .success-message .check { font-size: 3rem; margin-bottom: 1rem; }
+  .success-message h2 { font-family: 'Playfair Display', serif; color: var(--forest); margin-bottom: 0.75rem; }
+  .success-message p { color: var(--muted); font-size: 0.9rem; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Registration Agreement</h1>
+  <div class="leaf-divider"><span>🌿</span></div>
+  <p>Silverado Children's Center &nbsp;·&nbsp; May 2026 – August 2027</p>
+</div>
+
+<div class="container">
+
+  <div class="step-indicator">
+    <div class="step active"><span class="step-num">1</span> Child & Family</div>
+    <span class="step-sep">›</span>
+    <div class="step active"><span class="step-num">2</span> Schedule</div>
+    <span class="step-sep">›</span>
+    <div class="step active"><span class="step-num">3</span> Payment</div>
+    <span class="step-sep">›</span>
+    <div class="step active"><span class="step-num">4</span> Fundraiser</div>
+    <span class="step-sep">›</span>
+    <div class="step active"><span class="step-num">5</span> Agreements</div>
+  </div>
+
+  <div class="notice-box">
+    <strong>📋 Enrollment process:</strong> A campus tour is required before enrollment is finalized. If you haven't toured yet, please <a href="#" style="color:var(--forest);">schedule a tour first</a>.<br><br>
+    <strong>Before you begin:</strong> We accept children ages 2–7. This form does <em>not</em> guarantee your requested start date or schedule — placement is based on availability at the time your completed enrollment packet is received. The $175 registration fee is non-refundable.<br><br>
+    <strong>California immunization requirements:</strong> All enrolled children must meet California state vaccine requirements before the first day of attendance. <a href="#" style="color:var(--forest);">View requirements →</a>
+  </div>
+
+  <form id="regForm" novalidate>
+
+    <!-- SECTION 1: Child Info -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🌱</span> Child Information</div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="childName">Child's Full Name <span class="req">*</span></label>
+          <input type="text" id="childName" name="childName" placeholder="First and last name" required>
+        </div>
+      </div>
+
+      <div class="form-row cols-3">
+        <div class="field">
+          <label for="dob">Date of Birth <span class="req">*</span></label>
+          <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="field">
+          <label for="gender">Gender</label>
+          <select id="gender" name="gender">
+            <option value="">— select —</option>
+            <option>Girl</option>
+            <option>Boy</option>
+            <option>Non-binary</option>
+            <option>Prefer not to say</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Potty Trained? <span class="req">*</span></label>
+          <div class="radio-group horizontal" style="margin-top:0.5rem">
+            <label class="radio-option"><input type="radio" name="potty" value="yes" required> Yes</label>
+            <label class="radio-option"><input type="radio" name="potty" value="no"> Not yet</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="address">Mailing Address <span class="req">*</span></label>
+          <input type="text" id="address" name="address" placeholder="Street address" required>
+        </div>
+      </div>
+
+      <div class="form-row cols-3">
+        <div class="field">
+          <label for="city">City <span class="req">*</span></label>
+          <input type="text" id="city" name="city" required>
+        </div>
+        <div class="field">
+          <label for="state">State <span class="req">*</span></label>
+          <input type="text" id="state" name="state" value="CA">
+        </div>
+        <div class="field">
+          <label for="zip">Zip <span class="req">*</span></label>
+          <input type="text" id="zip" name="zip" placeholder="92676" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 2: Parents -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">👨‍👩‍👧</span> Parent / Guardian Information</div>
+
+      <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1rem;">The Primary Parent/Guardian is responsible for tuition payment and communication with the school.</p>
+
+      <div class="form-row">
+        <div class="field">
+          <label for="parent1Name">Primary Parent/Guardian Name <span class="req">*</span></label>
+          <input type="text" id="parent1Name" name="parent1Name" placeholder="Full name" required>
+        </div>
+      </div>
+
+      <div class="form-row cols-2">
+        <div class="field">
+          <label for="parent1Phone">Cell Phone <span class="req">*</span></label>
+          <input type="tel" id="parent1Phone" name="parent1Phone" placeholder="(714) 555-0100" required>
+        </div>
+        <div class="field">
+          <label for="parent1Email">Email Address <span class="req">*</span></label>
+          <input type="email" id="parent1Email" name="parent1Email" placeholder="email@example.com" required>
+        </div>
+      </div>
+
+      <hr class="section-rule">
+
+      <div class="form-row">
+        <div class="field">
+          <label for="parent2Name">Secondary Parent/Guardian Name</label>
+          <input type="text" id="parent2Name" name="parent2Name" placeholder="Full name (if applicable)">
+        </div>
+      </div>
+
+      <div class="form-row cols-2">
+        <div class="field">
+          <label for="parent2Phone">Cell Phone</label>
+          <input type="tel" id="parent2Phone" name="parent2Phone" placeholder="(714) 555-0100">
+        </div>
+        <div class="field">
+          <label for="parent2Email">Email Address</label>
+          <input type="email" id="parent2Email" name="parent2Email" placeholder="email@example.com">
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 3: Enrollment Preferences -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">📅</span> Enrollment Preferences</div>
+
+      <div class="schedule-grid">
+        <div>
+          <label class="col-header">Days Per Week <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="days" value="2days" required>
+              2 Days/Week (Tue &amp; Thu)
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="days" value="3days">
+              3 Days/Week (Mon, Wed &amp; Fri)
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="days" value="5days">
+              5 Days/Week (Mon – Fri)
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="col-header">Daily Hours <span class="req">*</span></label>
+          <div class="radio-group">
+            <label class="radio-option">
+              <input type="radio" name="hours" value="half" required>
+              ½ Day &nbsp;(8:30 AM – 12:30 PM)
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="hours" value="threequarter">
+              ¾ Day &nbsp;(8:30 AM – 3:00 PM)
+            </label>
+            <label class="radio-option">
+              <input type="radio" name="hours" value="full">
+              Full Day &nbsp;(8:30 AM – 5:00 PM)
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <hr class="section-rule">
+
+      <div class="form-row cols-2">
+        <div class="field">
+          <label for="startDate">Desired Start Date <span class="req">*</span></label>
+          <input type="date" id="startDate" name="startDate" required>
+          <span class="field-hint">Note: start date is not guaranteed — based on availability.</span>
+        </div>
+        <div class="field">
+          <label for="ageAtStart">Child's Age on Start Date <span class="req">*</span></label>
+          <input type="text" id="ageAtStart" name="ageAtStart" placeholder="e.g. 3 years, 2 months" required>
+        </div>
+      </div>
+    </div>
+
+    <!-- SECTION 4: Payment -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">💳</span> Registration Fee Payment</div>
+
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">A <strong style="color:var(--text)">non-refundable $175 registration fee</strong> is required to hold your spot. Renewal fee is $100 annually.</p>
+
+      <label style="margin-bottom:0.5rem;display:block;">Payment Method <span class="req">*</span></label>
+      <div class="payment-options">
+
+        <label class="payment-option">
+          <input type="radio" name="paymentMethod" value="check" required>
+          <div>
+            <div class="payment-option-label">💸 Check</div>
+            <div class="payment-option-desc">Mail or drop off your check at the school. Make payable to Silverado Children's Center.</div>
+          </div>
+        </label>
+
+        <label class="payment-option" id="zelleOption">
+          <input type="radio" name="paymentMethod" value="zelle" id="zelleRadio">
+          <div>
+            <div class="payment-option-label">📲 Zelle</div>
+            <div class="payment-option-desc">Send payment <em>before</em> submitting this form.</div>
+            <div class="zelle-detail" id="zelleDetail">
+              Send $175 via Zelle to: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3043535344455944595f5e01020370575d51595c1e535f5d">[email&#160;protected]</a></strong><br>
+              Use your child's name in the memo. Then enter the date sent and your name below.
+              <div style="margin-top:0.75rem;display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                <div class="field">
+                  <label for="zelleDate">Date Sent</label>
+                  <input type="date" id="zelleDate" name="zelleDate">
+                </div>
+                <div class="field">
+                  <label for="zelleName">Zelle Account Name</label>
+                  <input type="text" id="zelleName" name="zelleName" placeholder="Name on account">
+                </div>
+              </div>
+            </div>
+          </div>
+        </label>
+
+      </div>
+    </div>
+
+    <!-- SECTION 5: Fundraiser Volunteer Commitment -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">🎉</span> Fundraiser Volunteer Commitment</div>
+
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">SCC's community fundraisers make programs, equipment, and field trips possible. Each enrolled family is asked to volunteer at one of our two major annual fundraisers.</p>
+
+      <label style="margin-bottom:0.5rem;display:block;font-weight:600;font-size:0.85rem;letter-spacing:0.04em;">Select the fundraiser your family will volunteer at <span class="req">*</span></label>
+
+      <div class="payment-options">
+
+        <label class="payment-option">
+          <input type="radio" name="fundraiserChoice" value="wheelie_fun_fest" required>
+          <div>
+            <div class="payment-option-label">🚲 Wheelie Fun Fest</div>
+            <div class="payment-option-desc">Our largest yearly fundraiser. Families help with setup, activities, and community outreach.</div>
+          </div>
+        </label>
+
+        <label class="payment-option">
+          <input type="radio" name="fundraiserChoice" value="silverado_country_fair">
+          <div>
+            <div class="payment-option-label">🌾 Silverado Country Fair</div>
+            <div class="payment-option-desc">A beloved community tradition. Volunteers assist with booths, games, and event coordination.</div>
+          </div>
+        </label>
+
+      </div>
+
+      <div style="margin-top:1.25rem;background:#fdf6ec;border-left:3px solid var(--ochre, #c8893f);border-radius:2px;padding:1rem 1.25rem;">
+        <p style="font-size:0.85rem;color:var(--text, #3d2e1e);margin:0;line-height:1.7;">
+          <strong>Volunteer commitment policy:</strong> If your family is unable to fulfill your volunteer commitment at the selected fundraiser, a <strong>$250 donation to Silverado Children's Center</strong> is required in lieu of volunteer hours. By submitting this form, you agree to either volunteer at the fundraiser selected above or make the $250 donation if you are unable to participate.
+        </p>
+      </div>
+
+      <label class="checkbox-option" style="margin-top:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_fundraiser" required>
+        I understand and agree to volunteer at the fundraiser selected above, or to donate $250 to SCC if I am unable to fulfill my volunteer commitment.
+      </label>
+    </div>
+
+    <!-- SECTION 6: Policies -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">📋</span> Registration Agreement Terms</div>
+
+      <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1.25rem;">Please read each policy and check the box to confirm you understand and agree.</p>
+
+      <details class="policy-block">
+        <summary>Non-Refundable Registration Fee</summary>
+        <div class="policy-text">
+          The $175 initial registration fee is non-refundable. Annual renewal fee is $100.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_fee" required>
+        I understand the registration fee is non-refundable.
+      </label>
+
+      <details class="policy-block">
+        <summary>Tuition Payment Policy</summary>
+        <div class="policy-text">
+          Tuition is due on the first day of enrollment (prorated for the first month) and on the 1st of every month thereafter. Accepted via check or Zelle. Tuition is a consistent monthly amount regardless of days attended — no proration for illness, absences, vacations, school closures, or holidays. Payments not received by the 5th incur a $50 late fee. Accounts unpaid by the 10th may result in suspension or termination.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_tuition" required>
+        I understand the tuition payment policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Returned Check Policy</summary>
+        <div class="policy-text">
+          A $50 fee will be assessed for all returned checks. After two NSF checks, all future payments must be made by cashier's check, money order, or Zelle.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_check" required>
+        I understand the returned check policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Absences</summary>
+        <div class="policy-text">
+          Tuition remains the same regardless of attendance. No credit is given for absences due to illness, holidays, school closures, or personal situations. Children may not switch to a different day of the week to make up a missed day.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_absences" required>
+        I understand the absence policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Schedule Changes</summary>
+        <div class="policy-text">
+          SCC requires at least two weeks' written notice prior to changing your child's schedule (days or hours). New schedules take effect on the 1st of the following month.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_schedule" required>
+        I understand the schedule change policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Withdrawals</summary>
+        <div class="policy-text">
+          SCC requires at least two weeks' written notice prior to withdrawing your child. No refunds will be given without two weeks' notice. Tuition must be paid in full for the final week.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_withdrawal" required>
+        I understand the withdrawal policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Termination of Agreement</summary>
+        <div class="policy-text">
+          All children are accepted on a trial basis. SCC reserves the right to terminate enrollment without notice if staff determine the program is not meeting a child's needs, or for reasons including:
+          <ul>
+            <li>Verbal or physical abuse toward staff, children, or anyone on site</li>
+            <li>Excessive aggressive or inappropriate behavior that endangers others</li>
+            <li>Non-payment of tuition</li>
+            <li>Inability to adjust to the SCC program</li>
+            <li>Consistent or excessive late pick-up or disregard for school policies</li>
+          </ul>
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_termination" required>
+        I understand the termination policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Family Discount</summary>
+        <div class="policy-text">
+          Discount is applied to the lowest monthly rate: 10% off 2nd child, 15% off 3rd child, 20% off 4th child.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_discount" required>
+        I have read the family discount policy.
+      </label>
+
+      <details class="policy-block">
+        <summary>Department of Licensing</summary>
+        <div class="policy-text">
+          The Department of Licensing shall have the authority to interview children or staff, inspect and audit child or facility records without prior permission, and observe the physical condition of a child.
+        </div>
+      </details>
+      <label class="checkbox-option" style="margin-bottom:1rem;padding-left:0.25rem">
+        <input type="checkbox" name="agree_licensing" required>
+        I understand the Department of Licensing disclosure.
+      </label>
+
+    </div>
+
+    <!-- SECTION 6: Signature -->
+    <div class="section-card">
+      <div class="section-title"><span class="icon">✍️</span> Electronic Signature</div>
+
+      <div class="sig-field">
+        By typing your full name and submitting this form, you agree that this constitutes your electronic signature. You confirm that you consent to and will comply with this Registration Agreement together with the policies outlined in the Family Handbook.
+      </div>
+
+      <div class="form-row cols-2">
+        <div class="field">
+          <label for="sigName">Type Your Full Name <span class="req">*</span></label>
+          <input type="text" id="sigName" name="sigName" placeholder="Full legal name" required>
+        </div>
+        <div class="field">
+          <label for="sigDate">Today's Date <span class="req">*</span></label>
+          <input type="date" id="sigDate" name="sigDate" required>
+        </div>
+      </div>
+
+      <label class="checkbox-option" style="margin-top:0.75rem">
+        <input type="checkbox" name="agree_signature" required>
+        I agree this is my electronic signature and I have read and agree to all policies above.
+      </label>
+    </div>
+
+    <div class="submit-area">
+      <button type="submit" class="submit-btn">Submit Registration</button>
+      <p class="submit-note">After submitting, you'll receive a confirmation email at the address provided.<br>Questions? Contact us at <a href="/cdn-cgi/l/email-protection#8fe6e1e9e0cffce6e3f9eafdeeebe0ece7e6e3ebfdeae1fceceae1fbeafda1ece0e2" style="color:var(--moss)"><span class="__cf_email__" data-cfemail="4d24232b220d3e24213b283f2c29222e252421293f28233e2e282339283f632e2220">[email&#160;protected]</span></a> or (714) 649-2214.</p>
+    </div>
+
+  </form>
+
+  <div class="success-message" id="successMsg">
+    <div class="check">🌿</div>
+    <h2>Registration Received!</h2>
+    <p>Thank you for registering with Silverado Children's Center. We'll be in touch soon to confirm availability and next steps.<br><br>
+    If you paid by Zelle, please make sure your payment has been sent to <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8cbdbdbcccdd1ccd1d7d6898a8bf8dfd5d9d1d496dbd7d5">[email&#160;protected]</a></strong> before your spot can be confirmed.</p>
+  </div>
+
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Show/hide Zelle details
+  document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
+    radio.addEventListener('change', () => {
+      const detail = document.getElementById('zelleDetail');
+      detail.style.display = radio.value === 'zelle' && radio.checked ? 'block' : 'none';
+    });
+  });
+
+  // Auto-fill toda
