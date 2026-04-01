@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vaccine Requirements | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem;
+  border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* CONTENT */
+.container { max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.section { margin-bottom:3.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section h3 { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--bark); margin-bottom:0.5rem; margin-top:1.5rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a;
+  margin-bottom:1rem; }
+.section ul { padding-left:1.5rem; margin-bottom:1rem; }
+.section ul li { font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem; margin-top:1.5rem; }
+.card { background:white; border-radius:3px; padding:1.75rem;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.card h3 { margin-top:0; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+.placeholder { background:#fff3cd; border:1px dashed #c8893f; border-radius:3px;
+  padding:0.75rem 1rem; margin:0.5rem 0; font-size:0.82rem; color:#7a5c1e;
+  font-style:italic; }
+.placeholder::before { content:"⚠️ PLACEHOLDER — "; font-weight:600; }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+</head><body>
+<div class="page-hero">
+  <p class="eyebrow">Health &amp; Safety</p>
+  <h1>Vaccine Requirements</h1>
+  <p>California state law requires all children enrolled in a licensed childcare program to be fully vaccinated. Here&rsquo;s what you need to know before your child&rsquo;s first day.</p>
+</div>
+<div class="container">
+
+  <div class="highlight-box" style="margin-bottom:2.5rem;">
+    <p><strong>Important:</strong> California law does not allow us to accept Personal Belief Exemptions or children who are not vaccinated on the standard schedule. All children must have a current vaccination record or medical exemption on file before the first day of attendance.</p>
+  </div>
+
+  <div class="section">
+    <p class="label">Required Immunizations</p>
+    <h2>What Vaccines Are Required?</h2>
+    <p>The State of California requires specific immunizations for all children attending licensed preschool and childcare programs. The full and current list of required vaccines is maintained by the California Department of Public Health.</p>
+    <p>
+      <a href="https://www.cdph.ca.gov/Programs/CID/DCDC/CDPH%20Document%20Library/Immunization/IMM-222ChildCare.pdf"
+         target="_blank" rel="noopener" class="btn-primary" style="display:inline-block;">
+        View Required Immunizations (CDPH PDF) &rarr;
+      </a>
+    </p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Medical Exemptions</p>
+    <h2>Medical Exemptions</h2>
+    <p>Medical exemptions are accepted in place of specific vaccines when a licensed physician has determined that a vaccine is medically contraindicated for a child. The requirements for medical exemptions are outlined by the state:</p>
+    <p>
+      <a href="https://www.shotsforschool.org/laws/exemptions/" target="_blank" rel="noopener"
+         class="btn-primary" style="display:inline-block;">
+        View Medical Exemption Requirements &rarr;
+      </a>
+    </p>
+    <div class="highlight-box" style="margin-top:1.5rem;">
+      <p><strong>Please note:</strong> This applies to both medical exemptions <em>and</em> &ldquo;delayed schedules.&rdquo; We are not able to accept a doctor&rsquo;s note for either situation — exemptions must be recorded in the <strong>CAIR-ME website</strong> (California Immunization Registry — Medical Exemptions) before enrollment can be finalized.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">What to Submit</p>
+    <h2>How to Submit Your Child&rsquo;s Records</h2>
+    <p>Please include your child&rsquo;s vaccination record with your enrollment packet. Records can be:</p>
+    <ul>
+      <li>Submitted as part of your enrollment paperwork</li>
+      <li>Emailed to <a href="mailto:info@silveradochildrenscenter.com" style="color:var(--clay);">info@silveradochildrenscenter.com</a></li>
+      <li>Brought to your campus tour or your child&rsquo;s first day</li>
+    </ul>
+    <p>If you have questions about your child&rsquo;s vaccination status or records, your child&rsquo;s pediatrician is your best resource.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Questions?</p>
+    <h2>We&rsquo;re Happy to Help</h2>
+    <p>If you have questions about vaccine requirements or aren&rsquo;t sure whether your child&rsquo;s records are in order, please don&rsquo;t hesitate to reach out before scheduling your tour.</p>
+    <p><a href="mailto:info@silveradochildrenscenter.com" style="color:var(--clay);">info@silveradochildrenscenter.com</a> &nbsp;&middot;&nbsp; <a href="tel:7146492214" style="color:var(--clay);">(714) 649-2214</a></p>
+  </div>
+
+  <div style="text-align:center; padding:1rem 0 2rem;">
+    <a href="https://elachance.github.io/scc-preview/tour.html" class="btn-primary">Schedule a Tour</a>
+    <a href="https://elachance.github.io/scc-preview/scc-registration-form.html" class="btn-ghost">Begin Enrollment</a>
+  </div>
+
+</div>
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>

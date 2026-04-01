@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Programs | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem;
+  border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* CONTENT */
+.container { max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.section { margin-bottom:3.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section h3 { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--bark); margin-bottom:0.5rem; margin-top:1.5rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a;
+  margin-bottom:1rem; }
+.section ul { padding-left:1.5rem; margin-bottom:1rem; }
+.section ul li { font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem; margin-top:1.5rem; }
+.card { background:white; border-radius:3px; padding:1.75rem;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.card h3 { margin-top:0; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+.placeholder { background:#fff3cd; border:1px dashed #c8893f; border-radius:3px;
+  padding:0.75rem 1rem; margin:0.5rem 0; font-size:0.82rem; color:#7a5c1e;
+  font-style:italic; }
+.placeholder::before { content:"⚠️ PLACEHOLDER — "; font-weight:600; }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+<style>
+.schedule-row { display:grid; grid-template-columns:120px 1fr; gap:1rem;
+  padding:1rem 0; border-bottom:1px solid var(--parchment); align-items:start; }
+.schedule-row:last-child { border-bottom:none; }
+.schedule-time { font-size:0.75rem; font-weight:500; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--stone); padding-top:0.1rem; }
+.schedule-title { font-weight:500; font-size:0.95rem; color:var(--earth); margin-bottom:0.2rem; }
+.schedule-desc { font-size:0.85rem; font-weight:300; color:#7a6a5a; line-height:1.6; }
+</style>
+</head><body>
+<div class="page-hero">
+  <p class="eyebrow">How We Learn</p>
+  <h1>Programs at SCC</h1>
+  <p>Child-initiated, teacher-guided, and rooted in the natural world. Every day is different — because every child is different.</p>
+</div>
+<div class="container">
+
+  <div class="section">
+    <p class="label">Our Approach</p>
+    <h2>Emergent Curriculum</h2>
+    <p>Emergent curriculum is a philosophy of teaching that focuses on being responsive to children&rsquo;s interests to create meaningful learning experiences. Rather than following a fixed syllabus, our teachers observe each child, identify sparks of curiosity, and build learning experiences around them.</p>
+    <p>This philosophy prioritizes active participation, relationship building, inquiry, and play-based learning. Our curriculum is child-initiated, collaborative, and responsive to the children&rsquo;s needs. On a regular basis, teachers design interactions and activities to facilitate growth in verbal, expressive, small and gross motor skills through active exploration and positive interactions.</p>
+    <div class="highlight-box">
+      <p>You won&rsquo;t see worksheets at SCC. You will see children floating leaves down a water pipe, building towers with blocks, digging for wooden letters that spell their name, and watching a butterfly emerge from its chrysalis.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Year-Round Classes</p>
+    <h2>Our Classrooms</h2>
+    <div class="card-grid">
+      <div class="card">
+        <p class="label">Ages 2–3</p>
+        <h3>Seedlings &amp; Acorns</h3>
+        <p>Our <strong>Seedlings</strong> class is for children ages 2–3 who are not yet potty trained. Our <strong>Acorns</strong> class is for children ages 2–3 who are potty trained.</p>
+        <p>Focus is on play that fosters cooperation, socialization, self-regulation, and tactile experiences. Basic skills such as counting, colors, shapes, and listening are naturally incorporated. Nap/Rest time is included for ¾ and Full Day students. In the Seedlings classroom, potty training is also supported.</p>
+      </div>
+      <div class="card">
+        <p class="label">Ages 4–7</p>
+        <h3>Pinecones &amp; Oak Trees</h3>
+        <p>The <strong>Pinecones</strong> class (newly 4 year-olds) and <strong>Oak Trees</strong> class (ages 5+) are more structured as we prepare older children for kindergarten.</p>
+        <p>We have a stronger focus on pre-kindergarten skills: number and letter recognition, basic writing skills, listening comprehension, problem solving, conflict resolution, and continued independence skills.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Schedule Options</p>
+    <h2>Half Day, ¾ Day &amp; Full Day</h2>
+    <div class="card-grid">
+      <div class="card">
+        <p class="label">Half Day</p>
+        <h3>8:30 AM – 12:30 PM</h3>
+        <p>Morning arrival through lunch and group story time.</p>
+      </div>
+      <div class="card">
+        <p class="label">¾ Day</p>
+        <h3>8:30 AM – 3:00 PM</h3>
+        <p>Includes rest/quiet time after lunch.</p>
+      </div>
+      <div class="card">
+        <p class="label">Full Day</p>
+        <h3>8:30 AM – 5:00 PM</h3>
+        <p>Full day including afternoon snack, hike, and outdoor exploration.</p>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem; font-size:0.85rem; color:var(--stone);">Tuesday/Thursday and Monday/Wednesday/Friday schedules are available. Please discuss availability when you schedule your tour.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">A Typical Day</p>
+    <h2>Daily Schedule</h2>
+    <p style="margin-bottom:1.5rem;">Every day is a new experience at SCC, guided by the children&rsquo;s interests. This is the general format.</p>
+
+    <div class="schedule-row">
+      <div class="schedule-time">8:30 AM</div>
+      <div><div class="schedule-title">Arrival &amp; Outside Exploration</div>
+      <div class="schedule-desc">As students arrive, the day begins with outdoor free play in the yards.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">9:00 AM</div>
+      <div><div class="schedule-title">Circle Time</div>
+      <div class="schedule-desc">After hand washing, students gather with their teachers to discuss themes, read a story, or sing.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">9:20 AM</div>
+      <div><div class="schedule-title">Morning Hike</div>
+      <div class="schedule-desc">Time to explore the grounds and trails surrounding the school — Bobcat Creek, the Hawk Tree, the Stables, and beyond — looking for local flora, fauna, bugs, and small critters.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">10:00 AM</div>
+      <div><div class="schedule-title">Snack</div>
+      <div class="schedule-desc">Back on campus, we wash hands and sit down for a healthy snack provided by the school.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">10:20 AM</div>
+      <div><div class="schedule-title">Outside Exploration</div>
+      <div class="schedule-desc">There&rsquo;s always something new to discover in our play yards — teachers guide activities to inspire little minds.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">11:50 AM</div>
+      <div><div class="schedule-title">Lunchtime</div>
+      <div class="schedule-desc">After cleanup and hand washing, it&rsquo;s lunchtime. Lunches are provided by families in reusable containers. (No heating of food.)</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">12:20 PM</div>
+      <div><div class="schedule-title">Group Story</div>
+      <div class="schedule-desc">Students gather for story time as ½ day families prepare for pickup.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">12:30 PM</div>
+      <div><div class="schedule-title">Pickup (½ Day) / Rest Time (¾ &amp; Full Day)</div>
+      <div class="schedule-desc">Half-day students head home. ¾ and Full Day students rest; non-nappers enjoy quiet activities — puzzles, books, drawing.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">2:30 PM</div>
+      <div><div class="schedule-title">Wake &amp; Outside Exploration</div>
+      <div class="schedule-desc">Back outside as ¾ day students await pickup.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">3:00 PM</div>
+      <div><div class="schedule-title">Pickup (¾ Day) / Afternoon Snack (Full Day)</div>
+      <div class="schedule-desc">¾ day students head home. Full day students enjoy an afternoon snack.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">3:45 PM</div>
+      <div><div class="schedule-title">Afternoon Hike</div>
+      <div class="schedule-desc">A perfect way to get some afternoon energy out.</div></div>
+    </div>
+    <div class="schedule-row">
+      <div class="schedule-time">5:00 PM</div>
+      <div><div class="schedule-title">Pickup (Full Day)</div>
+      <div class="schedule-desc">See you tomorrow!</div></div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:1rem 0 2rem;">
+    <a href="https://elachance.github.io/scc-preview/tour.html" class="btn-primary">Schedule a Tour</a>
+    <a href="https://elachance.github.io/scc-preview/scc-registration-form.html" class="btn-ghost">Begin Enrollment</a>
+  </div>
+
+</div>
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Schedule a Tour | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem;
+  border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* CONTENT */
+.container { max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.section { margin-bottom:3.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section h3 { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--bark); margin-bottom:0.5rem; margin-top:1.5rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a;
+  margin-bottom:1rem; }
+.section ul { padding-left:1.5rem; margin-bottom:1rem; }
+.section ul li { font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem; margin-top:1.5rem; }
+.card { background:white; border-radius:3px; padding:1.75rem;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.card h3 { margin-top:0; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+.placeholder { background:#fff3cd; border:1px dashed #c8893f; border-radius:3px;
+  padding:0.75rem 1rem; margin:0.5rem 0; font-size:0.82rem; color:#7a5c1e;
+  font-style:italic; }
+.placeholder::before { content:"⚠️ PLACEHOLDER — "; font-weight:600; }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+<style>
+.form-wrap { background:white; border-radius:3px; box-shadow:0 2px 20px rgba(0,0,0,0.07);
+  padding:2.5rem; max-width:620px; }
+.field { margin-bottom:1.25rem; }
+.field label { display:block; font-size:0.8rem; font-weight:500; letter-spacing:0.06em;
+  text-transform:uppercase; color:var(--stone); margin-bottom:0.4rem; }
+.field input, .field select, .field textarea {
+  width:100%; padding:0.7rem 0.9rem; border:1px solid #ddd;
+  border-radius:2px; font-family:"Jost",sans-serif; font-size:0.9rem;
+  color:var(--earth); background:var(--light); transition:border-color 0.2s; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline:none; border-color:var(--ochre); }
+.field textarea { min-height:100px; resize:vertical; }
+.submit-btn { background:var(--ochre); color:white; border:none; cursor:pointer;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; padding:0.9rem 2.5rem;
+  border-radius:2px; transition:background 0.2s; }
+.submit-btn:hover { background:var(--clay); }
+</style>
+</head><body>
+<div class="page-hero">
+  <p class="eyebrow">Come Visit</p>
+  <h1>Schedule a Tour</h1>
+  <p>The best way to understand SCC is to experience it. Come meet the teachers, explore the yards, say hello to the animals, and see for yourself why families drive from across the canyon to be here.</p>
+</div>
+<div class="container">
+
+  <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;">
+
+    <div>
+      <div class="section">
+        <p class="label">What to Expect</p>
+        <h2>Your Tour at SCC</h2>
+        <p>Tours are led by our director, Miss Laurie, and typically run about 45 minutes. You&rsquo;ll get to see both play yards, meet the animals, walk the hiking trail, and ask any questions you have about our programs, schedule, and enrollment process.</p>
+        <p>Tours are offered Monday through Friday during school hours. We&rsquo;ll follow up within one business day to confirm a time that works for your family.</p>
+      </div>
+      <div class="section">
+        <p class="label">Next Steps</p>
+        <h2>After Your Tour</h2>
+        <p>If SCC feels like the right fit, the next step is completing the enrollment form. A campus tour is required before enrollment is finalized — so you&rsquo;re already on the right path.</p>
+        <ul>
+          <li>Tour the campus</li>
+          <li>Complete the enrollment form</li>
+          <li>Submit your child&rsquo;s vaccination record</li>
+          <li>Pay the $175 registration fee</li>
+          <li>Set your start date!</li>
+        </ul>
+      </div>
+      <div class="section">
+        <p class="label">Contact Us Directly</p>
+        <p><a href="mailto:info@silveradochildrenscenter.com" style="color:var(--clay);">info@silveradochildrenscenter.com</a><br>
+        <a href="tel:7146492214" style="color:var(--clay);">(714) 649-2214</a></p>
+        <p style="margin-top:0.5rem; font-size:0.85rem; color:var(--stone);">Mon–Fri &nbsp;8:30 AM – 5:00 PM</p>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:1.5rem;">Request a Tour</h2>
+      <div class="placeholder">This form needs to be connected to Formspree or the school email once Laurie signs up.</div>
+      <form action="#" method="POST" style="margin-top:1.5rem;">
+        <div class="field">
+          <label>Your Name *</label>
+          <input type="text" name="name" required placeholder="First and last name">
+        </div>
+        <div class="field">
+          <label>Email *</label>
+          <input type="email" name="email" required placeholder="your@email.com">
+        </div>
+        <div class="field">
+          <label>Phone</label>
+          <input type="tel" name="phone" placeholder="(xxx) xxx-xxxx">
+        </div>
+        <div class="field">
+          <label>Child&rsquo;s Age *</label>
+          <select name="age" required>
+            <option value="">— select —</option>
+            <option>2 years old</option>
+            <option>3 years old</option>
+            <option>4 years old</option>
+            <option>5 years old</option>
+            <option>6 years old</option>
+            <option>7 years old</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Preferred Days</label>
+          <select name="days">
+            <option value="">— no preference —</option>
+            <option>Monday – Friday</option>
+            <option>Tuesday / Thursday</option>
+            <option>Monday / Wednesday / Friday</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Questions or Notes</label>
+          <textarea name="notes" placeholder="Anything you&rsquo;d like us to know before your visit&hellip;"></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Send Request &rarr;</button>
+      </form>
+    </div>
+
+  </div>
+</div>
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Friends of SCC | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem;
+  border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* CONTENT */
+.container { max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.section { margin-bottom:3.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section h3 { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--bark); margin-bottom:0.5rem; margin-top:1.5rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a;
+  margin-bottom:1rem; }
+.section ul { padding-left:1.5rem; margin-bottom:1rem; }
+.section ul li { font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.5rem; margin-top:1.5rem; }
+.card { background:white; border-radius:3px; padding:1.75rem;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.card h3 { margin-top:0; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+.placeholder { background:#fff3cd; border:1px dashed #c8893f; border-radius:3px;
+  padding:0.75rem 1rem; margin:0.5rem 0; font-size:0.82rem; color:#7a5c1e;
+  font-style:italic; }
+.placeholder::before { content:"⚠️ PLACEHOLDER — "; font-weight:600; }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+<style>
+.project-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:1.25rem; margin-top:1.5rem; }
+.project-card { background:white; border-radius:3px; padding:1.25rem;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.project-card .date { font-size:0.7rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--stone); margin-bottom:0.35rem; }
+.project-card h4 { font-family:"Cormorant Garamond",serif; font-size:1.1rem;
+  color:var(--earth); margin-bottom:0.4rem; }
+.project-card p { font-size:0.82rem; font-weight:300; color:#7a6a5a; line-height:1.6; margin:0; }
+.event-card { background:var(--parchment); border-radius:3px; padding:1.5rem;
+  margin-bottom:1.25rem; }
+.event-card h3 { font-family:"Cormorant Garamond",serif; font-size:1.3rem; margin-bottom:0.3rem; }
+.event-card .date { font-size:0.75rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; color:var(--stone); margin-bottom:0.75rem; }
+.event-card p { font-size:0.88rem; font-weight:300; color:#5a4a3a; line-height:1.7; margin:0; }
+.donate-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1rem; margin-top:1.25rem; }
+.donate-card { background:white; border-radius:3px; padding:1.25rem; text-align:center;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.donate-card a { display:block; font-weight:500; font-size:0.9rem; color:var(--clay);
+  text-decoration:none; margin-top:0.5rem; }
+.donate-card p { font-size:0.8rem; color:var(--stone); margin:0.25rem 0 0; }
+</style>
+</head><body>
+<div class="page-hero">
+  <p class="eyebrow">Get Involved</p>
+  <h1>Friends of Silverado<br>Children&rsquo;s Center</h1>
+  <p>FoSCC is a 501(c)(3) charity formed to support the facility, programs, and community of SCC. Every dollar raised goes directly back to the school.</p>
+</div>
+<div class="container">
+
+  <div class="section">
+    <p class="label">Who We Are</p>
+    <h2>About FoSCC</h2>
+    <p>Friends of Silverado Children&rsquo;s Center is a parent-led, volunteer-driven organization with a simple mission: support SCC by coordinating family engagement opportunities, volunteer projects, and fundraising to improve the programs and facility.</p>
+    <p>We invite SCC families and community members to get involved — whether that&rsquo;s showing up to a work day, sponsoring a fundraiser, or simply shopping at Ralphs with your rewards card.</p>
+    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.25rem;">
+      <a href="mailto:friendsofsilveradocc@gmail.com" class="btn-primary">Contact FoSCC</a>
+      <a href="https://www.facebook.com/FriendsofSCC" target="_blank" rel="noopener" class="btn-ghost">Follow on Facebook</a>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Support the School</p>
+    <h2>Ways to Donate</h2>
+    <p>Every donation — large or small — goes directly toward improving the school. Here&rsquo;s how to give:</p>
+    <div class="donate-grid">
+      <div class="donate-card">
+        <div style="font-size:1.5rem;">📲</div>
+        <a href="https://account.venmo.com/u/FriendsofSilveradoCC" target="_blank">Venmo</a>
+        <p>@FriendsofSilveradoCC</p>
+      </div>
+      <div class="donate-card">
+        <div style="font-size:1.5rem;">💸</div>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=J5X5LPB9VTDTU" target="_blank">PayPal</a>
+        <p>Donate online</p>
+      </div>
+      <div class="donate-card">
+        <div style="font-size:1.5rem;">📱</div>
+        <a href="mailto:friendsofsilveradocc@gmail.com">Zelle</a>
+        <p>friendsofsilveradocc@gmail.com<br><em>(no fees!)</em></p>
+      </div>
+      <div class="donate-card">
+        <div style="font-size:1.5rem;">✉️</div>
+        <span style="font-weight:500; font-size:0.9rem; color:var(--earth); display:block; margin-top:0.5rem;">Check</span>
+        <p>Make out to &ldquo;Friends of SCC&rdquo; and drop off at the school</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Shop &amp; Support</p>
+    <h2>Other Ways to Help</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>🛍️ SCC Wish List</h3>
+        <p>Purchase directly from the school&rsquo;s Amazon Wish List and have it sent straight to campus. Let them know it&rsquo;s from you — Amazon doesn&rsquo;t include that info!</p>
+        <a href="https://www.amazon.com/hz/wishlist/ls/1AS8ED8CIGL64" target="_blank" class="btn-primary" style="font-size:0.75rem; padding:0.6rem 1.25rem;">View Wish List &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>🛒 Ralphs Rewards</h3>
+        <p>Log in to your Ralphs account at ralphs.com and enroll in Community Rewards. Search for <strong>&ldquo;Friends of the Silverado Children&rsquo;s Center&rdquo;</strong> or use ID: <strong>RJ841</strong>. Every swipe benefits FoSCC!</p>
+      </div>
+      <div class="card">
+        <h3>🎨 Shop Minted</h3>
+        <p>Visit <a href="http://minted.com" target="_blank" style="color:var(--clay);">minted.com</a> for cards, invitations, and gifts. Use code <strong>FUNDRAISESILVERADO</strong> at checkout — you save 20% and Minted donates 15% to FoSCC.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Annual Fundraisers</p>
+    <h2>Major Events</h2>
+
+    <div class="event-card">
+      <div class="date">Annual Event — Summer</div>
+      <h3>🚲 Wheelie Fun Festival</h3>
+      <p>Our largest yearly fundraiser! Kids take to the course on bikes, trikes, and scooters to raise money for SCC. The inaugural event in 2021 raised more than $6,500. The 2nd Annual raised more than $9,000. Held at Silverado Community Center, with sponsors including Cook&rsquo;s Corner, Irvine Park Railroad, OC Zoo, and Wheel Fun Rentals.</p>
+    </div>
+
+    <div class="event-card">
+      <div class="date">Annual Event — Fall</div>
+      <h3>🌾 Silverado Country Fair</h3>
+      <p>FoSCC proudly hosts the Raffle and Kid&rsquo;s Zone at the annual Silverado Country Fair, hosted by the Inter-Canyon League. Families enjoy a perfect weekend in Silverado with crafts, games, raffle items, and community spirit. Past events have raised more than $2,000.</p>
+    </div>
+
+    <div class="event-card">
+      <div class="date">Community Event</div>
+      <h3>🎵 Cook&rsquo;s and the Kids</h3>
+      <p>Live music, a raffle, and a beautiful afternoon at Cook&rsquo;s Corner in support of the Friends. Past events have featured The Whiskey Throwbacks, Her Silver Plane, The Brandys, Road Soda Rangers, The Plumes, and the James Kelly Band — and raised over $2,500 per event.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Recent Projects</p>
+    <h2>What Your Dollars Have Funded</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="date">November 2024</div>
+        <h4>Wish List Shopping Spree</h4>
+        <p>Water pumps for mud kitchens, blocks, treehouse zip lines and winches, hammer sets, bouncy ball racers, baby dolls, books, crates, a safety mirror, and a pottery wheel.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">November 2024</div>
+        <h4>Reggio Conference</h4>
+        <p>Laurie, Kaylie, and Kate attended a Reggio Training Conference at IVC — funded by the Friends.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">October 2024</div>
+        <h4>Air Purifiers</h4>
+        <p>Two new air purifiers for the classrooms plus an air quality monitor to track smoke, ash, and allergens.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">September 2024</div>
+        <h4>Pirate Day Puppet Show</h4>
+        <p>A marionette adventure brought to the kids — because Pirate Day isn&rsquo;t complete without a little drama!</p>
+      </div>
+      <div class="project-card">
+        <div class="date">August 2024</div>
+        <h4>Rolling Outdoor Shelving</h4>
+        <p>New shelving for the Pinecone/Oak Tree yard, bringing supplies to where the action is.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">April 2024</div>
+        <h4>Outdoor Sink</h4>
+        <p>The Pinecone/Oak Tree yard now has a functioning outdoor sink — perfect for hand washing, paintbrush rinsing, and more.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">April 2024</div>
+        <h4>Solar Eclipse Glasses</h4>
+        <p>Students watched the solar eclipse safely — because the natural world offers the best science lessons.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">August 2023</div>
+        <h4>Faux Grass &amp; Shady Oasis</h4>
+        <p>Turned a rough dirt patch into a perfect shady reading and play spot.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">August 2023</div>
+        <h4>Animal Signage</h4>
+        <p>New animal signs — including an &ldquo;in memoriam&rdquo; wall to honor the four-legged friends we&rsquo;ve lost. ❤️</p>
+      </div>
+      <div class="project-card">
+        <div class="date">July 2023</div>
+        <h4>Shade Structures</h4>
+        <p>The school got four; the Friends got one more and assembled them all. Sweet relief for hot canyon days.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">April 2023</div>
+        <h4>60 New Water Bottles</h4>
+        <p>Dozens of unique designs so no two kids in the school have the same bottle — easy to tell apart after washing.</p>
+      </div>
+      <div class="project-card">
+        <div class="date">June 2022</div>
+        <h4>New Washer &amp; Dryer</h4>
+        <p>A bit of an upgrade from the original set from the &rsquo;80s!</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:1rem 0 2rem;">
+    <a href="mailto:friendsofsilveradocc@gmail.com" class="btn-primary">Get Involved</a>
+    <a href="https://www.facebook.com/FriendsofSCC" target="_blank" rel="noopener" class="btn-ghost">Follow on Facebook</a>
+  </div>
+
+</div>
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>
