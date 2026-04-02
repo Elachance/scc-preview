@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gallery | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem;
+  border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* SECTION HEADERS */
+.gallery-section { max-width:1100px; margin:0 auto; padding:3.5rem 4vw 0; }
+.gallery-section:last-of-type { padding-bottom:4rem; }
+.section-label { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.5rem; }
+.section-title { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.4rem; }
+.section-desc { font-size:0.88rem; font-weight:300; color:var(--stone);
+  line-height:1.7; margin-bottom:1.75rem; max-width:540px; }
+
+/* GRID */
+.photo-grid { display:grid; gap:0.6rem; }
+.photo-grid.col-3 { grid-template-columns:repeat(3,1fr); }
+.photo-grid.col-2 { grid-template-columns:repeat(2,1fr); }
+.photo-grid.col-4 { grid-template-columns:repeat(4,1fr); }
+.photo-grid.mixed { grid-template-columns:repeat(12,1fr); }
+
+.photo-wrap { overflow:hidden; background:var(--parchment); border-radius:2px; }
+.photo-wrap img { width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform 0.4s ease; }
+.photo-wrap:hover img { transform:scale(1.03); }
+
+/* aspect ratios */
+.ratio-sq  { aspect-ratio:1/1; }
+.ratio-4-3 { aspect-ratio:4/3; }
+.ratio-3-4 { aspect-ratio:3/4; }
+.ratio-16-9 { aspect-ratio:16/9; }
+.ratio-3-2 { aspect-ratio:3/2; }
+
+/* rotated originals */
+.rotated-cw { transform:rotate(90deg) !important; }
+.photo-wrap.needs-rotate { overflow:hidden; }
+.photo-wrap.needs-rotate img {
+  width:133%; height:133%;
+  margin-left:-16.5%; margin-top:-16.5%;
+  transform:rotate(90deg);
+  transition:none;
+}
+.photo-wrap.needs-rotate:hover img { transform:rotate(90deg) scale(1.03); }
+
+/* DIVIDER */
+.gallery-divider { max-width:1100px; margin:3rem auto 0; padding:0 4vw; }
+.gallery-divider hr { border:none; border-top:1px solid var(--parchment); }
+
+/* CTA */
+.cta-block { text-align:center; padding:3rem 0 1rem; }
+.cta-block p { font-size:0.9rem; font-weight:300; color:var(--stone); margin-bottom:0.25rem; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+
+@media(max-width:900px) {
+  .photo-grid.col-3 { grid-template-columns:repeat(2,1fr); }
+  .photo-grid.col-4 { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:600px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  .photo-grid.col-3,
+  .photo-grid.col-2,
+  .photo-grid.col-4 { grid-template-columns:1fr 1fr; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html">Tour</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html" class="nav-cta">Enroll</a></li>
+  </ul>
+</nav>
+</head><body>
+
+<div class="page-hero">
+  <p class="eyebrow">Life at SCC</p>
+  <h1>A Glimpse Into<br>the Canyons</h1>
+  <p>Every day looks a little different at SCC. Here&rsquo;s what learning in the canyons actually looks like.</p>
+</div>
+
+<!-- ANIMALS -->
+<div class="gallery-section">
+  <p class="section-label">Campus Friends</p>
+  <h2 class="section-title">Meet the Animals</h2>
+  <p class="section-desc">Two goats, a miniature horse, Tank the tortoise, and a leopard gecko call SCC home. Caring for them is part of the curriculum every day.</p>
+
+  <div class="photo-grid col-3">
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/goats-nuzzling-01.jpg" alt="Two goats nuzzling at SCC">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/tank-tortoise.jpg" alt="Tank the tortoise">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/goat-tan.jpg" alt="Tan goat looking up at the camera">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/kids-petting-horse.jpg" alt="Children petting the miniature horse at The Stables">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/goat-grey.jpg" alt="Grey goat at SCC">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/goat-portrait.jpg" alt="Grey goat portrait">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-divider"><hr></div>
+
+<!-- PLAY -->
+<div class="gallery-section">
+  <p class="section-label">Hands-On Learning</p>
+  <h2 class="section-title">Learning Through Play</h2>
+  <p class="section-desc">No worksheets here. Mud, paint, dough, and water are our materials. Getting thoroughly messy is encouraged.</p>
+
+  <div class="photo-grid col-4">
+    <div class="photo-wrap ratio-sq">
+      <img src="photos/mud-play-01.jpg" alt="Child's hands exploring mud and clay">
+    </div>
+    <div class="photo-wrap ratio-sq">
+      <img src="photos/mud-play-02.jpg" alt="Child playing with mud buckets">
+    </div>
+    <div class="photo-wrap ratio-sq">
+      <img src="photos/mud-pan.jpg" alt="Child's hand in a mud pan">
+    </div>
+    <div class="photo-wrap ratio-sq">
+      <img src="photos/sensory-dough.jpg" alt="Children's hands working dough in a bowl">
+    </div>
+  </div>
+
+  <div class="photo-grid col-3" style="margin-top:0.6rem">
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/paint-hands-blue.jpg" alt="Children's hands covered in blue paint">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/paint-blue-01.jpg" alt="Child with arms and hands covered in blue paint">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/paint-blue-02.jpg" alt="Child painting with hands on a large canvas">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-divider"><hr></div>
+
+<!-- STUMP ART -->
+<div class="gallery-section">
+  <p class="section-label">Nature &amp; Collaboration</p>
+  <h2 class="section-title">The Stump</h2>
+  <p class="section-desc">Children gathered around a tree stump, arranging sticks, stones, and seed pods into something beautiful. This is emergent curriculum in action.</p>
+
+  <div class="photo-grid col-3">
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-overhead.jpg" alt="Overhead view of nature mandala on tree stump">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-02.jpg" alt="Children collaborating on a nature arrangement">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-03.jpg" alt="Child leaning in to arrange stones on stump">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-04.jpg" alt="Children gathered around the stump together">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-05.jpg" alt="Children carefully placing sticks and stones">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/stump-art-06.jpg" alt="Children working together on the nature mandala">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-divider"><hr></div>
+
+<!-- CAMPUS -->
+<div class="gallery-section">
+  <p class="section-label">Where We Learn</p>
+  <h2 class="section-title">Our Campus</h2>
+  <p class="section-desc">Nestled in the canyons of Silverado, the campus blends the built and natural worlds — tire swings, garden beds, the Hawk Tree, and miles of trails just beyond the fence.</p>
+
+  <div class="photo-grid col-3">
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/playground-tire-swing.jpg" alt="SCC playground with tire swing and tree stumps">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/hawk-tree.jpg" alt="The Hawk Tree draped with colorful decorations">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/garden-beds.jpg" alt="Raised garden beds on the SCC campus">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/playground-slide.jpg" alt="Pink slide on the SCC hillside playground">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/campus-entrance.jpg" alt="SCC campus entrance with canyon hills behind">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/storytime.jpg" alt="Teacher reading to children outdoors">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-divider"><hr></div>
+
+<!-- EXPLORATION -->
+<div class="gallery-section">
+  <p class="section-label">Beyond the Fence</p>
+  <h2 class="section-title">Life in the Canyons</h2>
+  <p class="section-desc">Every morning begins with a hike. The canyon is the classroom — creeks, trails, wildlife, and the open sky overhead.</p>
+
+  <div class="photo-grid col-3">
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/two-kids-hiking.jpg" alt="Two children walking together on a canyon trail">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/tree-climbing.jpg" alt="Child climbing a canyon oak tree">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/swing.jpg" alt="Child soaring on the rope swing with the canyon behind">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/parade-walk.jpg" alt="Children on a group walk along the canyon road">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/canyon-snake.jpg" alt="A wild snake spotted on the SCC trail">
+    </div>
+    <div class="photo-wrap ratio-4-3">
+      <img src="photos/goats-nuzzling-02.jpg" alt="The two SCC goats touching noses">
+    </div>
+  </div>
+</div>
+
+<div class="gallery-section">
+  <div class="cta-block">
+    <p>Want to see it for yourself?</p>
+    <a href="https://elachance.github.io/scc-preview/tour.html" class="btn-primary">Schedule a Tour</a>
+    <a href="https://elachance.github.io/scc-preview/scc-registration-form.html" class="btn-ghost">Begin Enrollment</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>
