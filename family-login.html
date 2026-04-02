@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Family Login | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); min-height:100vh; }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem; border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* LOGIN GATE */
+#loginGate {
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  min-height:calc(100vh - 60px); padding:2rem;
+}
+.login-box {
+  background:white; border-radius:4px; padding:3rem 2.5rem;
+  box-shadow:0 4px 32px rgba(0,0,0,0.08); max-width:400px; width:100%; text-align:center;
+}
+.login-box .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.5rem; }
+.login-box h1 { font-family:"Cormorant Garamond",serif; font-size:2rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.5rem; }
+.login-box p { font-size:0.88rem; font-weight:300; color:var(--stone); margin-bottom:1.75rem; line-height:1.6; }
+.login-box input[type="password"] {
+  width:100%; padding:0.75rem 1rem; border:1px solid #ddd; border-radius:2px;
+  font-family:"Jost",sans-serif; font-size:1rem; color:var(--earth);
+  background:var(--light); transition:border-color 0.2s; text-align:center;
+  letter-spacing:0.15em; margin-bottom:0.75rem;
+}
+.login-box input[type="password"]:focus { outline:none; border-color:var(--ochre); }
+.login-box button {
+  width:100%; background:var(--ochre); color:white; border:none; cursor:pointer;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500;
+  letter-spacing:0.1em; text-transform:uppercase; padding:0.85rem;
+  border-radius:2px; transition:background 0.2s;
+}
+.login-box button:hover { background:var(--clay); }
+.error-msg { font-size:0.82rem; color:#c0392b; margin-top:0.5rem; display:none; }
+
+/* FAMILY AREA */
+#familyArea { display:none; max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; }
+.section { margin-bottom:3rem; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a; margin-bottom:1rem; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a; }
+.resource-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; margin-top:1.25rem; }
+.resource-card { background:white; border-radius:3px; padding:1.5rem;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.resource-card h3 { font-family:"Cormorant Garamond",serif; font-size:1.2rem;
+  font-weight:500; color:var(--earth); margin-bottom:0.5rem; }
+.resource-card p { font-size:0.85rem; font-weight:300; color:#7a6a5a; line-height:1.6; margin:0 0 0.75rem; }
+.resource-card a { font-size:0.8rem; font-weight:500; color:var(--ochre); text-decoration:none; }
+.resource-card a:hover { color:var(--clay); }
+.logout-btn { font-size:0.75rem; font-weight:500; color:var(--stone); background:none;
+  border:1px solid var(--parchment); cursor:pointer; padding:0.4rem 0.9rem;
+  border-radius:2px; letter-spacing:0.08em; text-transform:uppercase; }
+.logout-btn:hover { color:var(--earth); border-color:var(--stone); }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="https://elachance.github.io/scc-preview/index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="https://elachance.github.io/scc-preview/about.html">About</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/tour.html">Tour</a></li>
+    <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html" class="nav-cta">Enroll</a></li>
+  </ul>
+</nav>
+</head><body>
+
+<!-- LOGIN GATE -->
+<div id="loginGate">
+  <div class="login-box">
+    <p class="eyebrow">SCC Families</p>
+    <h1>Family Area</h1>
+    <p>This area is for currently enrolled families. Enter the password provided by the school to continue.</p>
+    <input type="password" id="passwordInput" placeholder="Password" autocomplete="current-password">
+    <p class="error-msg" id="errorMsg">Incorrect password. Please try again.</p>
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+</div>
+
+<!-- FAMILY CONTENT (hidden until login) -->
+<div id="familyAreaWrap" style="display:none;">
+
+<div class="page-hero">
+  <p class="eyebrow">Welcome Back</p>
+  <h1>Family Area</h1>
+</div>
+
+<div id="familyArea">
+
+  <div style="display:flex; justify-content:flex-end; margin-bottom:1.5rem;">
+    <button class="logout-btn" onclick="logout()">Log Out</button>
+  </div>
+
+  <div class="section">
+    <p class="label">Stay Connected</p>
+    <h2>Resources for Families</h2>
+    <p>Everything you need to stay up to date with life at SCC.</p>
+
+    <div class="resource-grid">
+      <div class="resource-card">
+        <h3>School Calendar</h3>
+        <p>Upcoming events, closures, and important dates for the school year.</p>
+        <a href="#">View Calendar &rarr;</a>
+      </div>
+      <div class="resource-card">
+        <h3>Family Handbook</h3>
+        <p>Policies, procedures, and everything you need to know as an SCC family.</p>
+        <a href="#">Download Handbook &rarr;</a>
+      </div>
+      <div class="resource-card">
+        <h3>Volunteer Sign-Up</h3>
+        <p>Sign up for Wheelie Fun Fest, the Silverado Country Fair, or other volunteer opportunities.</p>
+        <a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest &rarr;</a>
+      </div>
+      <div class="resource-card">
+        <h3>Friends of SCC</h3>
+        <p>Donate, shop the store, or connect with the FoSCC community.</p>
+        <a href="https://elachance.github.io/scc-preview/foscc.html">FoSCC Page &rarr;</a>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Support the School</p>
+    <h2>Easy Ways to Give</h2>
+    <div class="highlight-box">
+      <p>Link your <strong>Ralphs Rewards card</strong> to Community Rewards ID <strong>RJ841</strong> and a portion of every grocery purchase goes to FoSCC automatically — at no cost to you.</p>
+    </div>
+    <p>You can also support through <a href="https://www.amazon.com/hz/wishlist/ls/1AS8ED8CIGL64" target="_blank" rel="noopener" style="color:var(--clay);">our Amazon Wish List</a>, or by using Minted code <strong>FUNDRAISESILVERADO</strong> for cards and stationery.</p>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Get in Touch</p>
+    <h2>Contact the School</h2>
+    <p><a href="tel:7146492214" style="color:var(--clay);">(714) 649-2214</a> &nbsp;&middot;&nbsp;
+    <a href="mailto:info@silveradochildrenscenter.com" style="color:var(--clay);">info@silveradochildrenscenter.com</a></p>
+    <p style="font-size:0.85rem; color:var(--stone); margin-top:0.25rem;">Mon–Fri &nbsp;8:30 AM – 5:00 PM</p>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Registration</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/gallery.html">Gallery</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="https://elachance.github.io/scc-preview/foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+
+</div><!-- end familyAreaWrap -->
+
+<script>
+  const PASS = 'Luna';
+
+  function checkPassword() {
+    const val = document.getElementById('passwordInput').value;
+    if (val === PASS) {
+      sessionStorage.setItem('sccAuth', '1');
+      showFamily();
+    } else {
+      document.getElementById('errorMsg').style.display = 'block';
+      document.getElementById('passwordInput').value = '';
+      document.getElementById('passwordInput').focus();
+    }
+  }
+
+  function showFamily() {
+    document.getElementById('loginGate').style.display = 'none';
+    document.getElementById('familyAreaWrap').style.display = 'block';
+  }
+
+  function logout() {
+    sessionStorage.removeItem('sccAuth');
+    document.getElementById('familyAreaWrap').style.display = 'none';
+    document.getElementById('loginGate').style.display = 'flex';
+    document.getElementById('passwordInput').value = '';
+  }
+
+  // Allow Enter key on password field
+  document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') checkPassword();
+  });
+
+  // Stay logged in for the session
+  if (sessionStorage.getItem('sccAuth') === '1') showFamily();
+</script>
+</body></html>

@@ -138,20 +138,19 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
       <div class="section">
         <p class="label">What to Expect</p>
         <h2>Your Tour at SCC</h2>
-        <p>Tours are led by our director, Miss Laurie, and typically run about 45 minutes. You&rsquo;ll get to see both play yards, meet the animals, walk the hiking trail, and ask any questions you have about our programs, schedule, and enrollment process.</p>
-        <p>Tours are offered Monday through Friday during school hours. We&rsquo;ll follow up within one business day to confirm a time that works for your family.</p>
+        <p>Tours run approximately <strong>30 minutes</strong> and are limited to <strong>2 adults</strong> — this is a parent/guardian visit, so please leave little ones at home for now. You&rsquo;ll get to see both play yards, meet the animals, walk the hiking trail, and ask any questions you have about our programs and schedule.</p>
+        <p>Tours are offered based on availability. We&rsquo;ll follow up within one business day to confirm a time that works for you.</p>
       </div>
       <div class="section">
         <p class="label">Next Steps</p>
-        <h2>After Your Tour</h2>
-        <p>If SCC feels like the right fit, the next step is completing the enrollment form. A campus tour is required before enrollment is finalized — so you&rsquo;re already on the right path.</p>
-        <ul>
-          <li>Tour the campus</li>
-          <li>Complete the enrollment form</li>
-          <li>Submit your child&rsquo;s vaccination record</li>
-          <li>Pay the $175 registration fee</li>
-          <li>Set your start date!</li>
-        </ul>
+        <h2>The Path to Enrollment</h2>
+        <p>After your tour, here&rsquo;s how the process works:</p>
+        <ol style="padding-left:1.5rem; margin-top:0.5rem;">
+          <li style="font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; margin-bottom:0.5rem;"><strong>Parent tour</strong> — 30 minutes, adults only</li>
+          <li style="font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; margin-bottom:0.5rem;"><strong>Child visit</strong> — 30 minutes at 11:00 AM, your child joins us on campus</li>
+          <li style="font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; margin-bottom:0.5rem;"><strong>Register online</strong> — complete the registration form on our website</li>
+          <li style="font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a;"><strong>Enrollment packet</strong> — we&rsquo;ll send your full enrollment packet to complete</li>
+        </ol>
       </div>
       <div class="section">
         <p class="label">Contact Us Directly</p>
@@ -163,8 +162,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
 
     <div class="form-wrap">
       <h2 style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; margin-bottom:1.5rem;">Request a Tour</h2>
-      <div class="placeholder">This form needs to be connected to Formspree or the school email once Laurie signs up.</div>
-      <form action="#" method="POST" style="margin-top:1.5rem;">
+      <form action="https://formspree.io/f/mdapllld" method="POST">
         <div class="field">
           <label>Your Name *</label>
           <input type="text" name="name" required placeholder="First and last name">
@@ -190,12 +188,12 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
           </select>
         </div>
         <div class="field">
-          <label>Preferred Days</label>
-          <select name="days">
-            <option value="">— no preference —</option>
-            <option>Monday – Friday</option>
-            <option>Tuesday / Thursday</option>
-            <option>Monday / Wednesday / Friday</option>
+          <label>Is your child potty trained? *</label>
+          <select name="potty_trained" required>
+            <option value="">— select —</option>
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+            <option value="In progress">In progress</option>
           </select>
         </div>
         <div class="field">
@@ -219,7 +217,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
     <ul class="footer-links">
       <li><a href="https://elachance.github.io/scc-preview/about.html">About SCC</a></li>
       <li><a href="https://elachance.github.io/scc-preview/programs.html">Programs</a></li>
-      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Enrollment</a></li>
+      <li><a href="https://elachance.github.io/scc-preview/scc-registration-form.html">Registration</a></li>
       <li><a href="https://elachance.github.io/scc-preview/vaccines.html">Vaccines</a></li>
       <li><a href="https://elachance.github.io/scc-preview/summer.html">Summer Program</a></li>
       <li><a href="https://elachance.github.io/scc-preview/afterschool.html">After-School Care</a></li>

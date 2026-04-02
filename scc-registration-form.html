@@ -481,12 +481,12 @@
   </div>
 
   <div class="notice-box">
-    <strong>📋 Enrollment process:</strong> A campus tour is required before enrollment is finalized. If you haven't toured yet, please <a href="https://elachance.github.io/scc-preview/tour.html" style="color:var(--forest);">schedule a tour first</a>.<br><br>
-    <strong>Before you begin:</strong> We accept children ages 2–7. This form does <em>not</em> guarantee your requested start date or schedule — placement is based on availability at the time your completed enrollment packet is received. The $175 registration fee is non-refundable.<br><br>
+    <strong>📋 Registration process:</strong> A campus tour is required before registration is finalized. If you haven't toured yet, please <a href="https://elachance.github.io/scc-preview/tour.html" style="color:var(--forest);">schedule a tour first</a>.<br><br>
+    <strong>Before you begin:</strong> We accept children ages 2–7. This form does <em>not</em> guarantee your requested start date or schedule — placement is based on availability at the time your completed registration packet is received. The $175 registration fee is non-refundable.<br><br>
     <strong>California immunization requirements:</strong> All enrolled children must meet California state vaccine requirements before the first day of attendance. <a href="https://elachance.github.io/scc-preview/vaccines.html" style="color:var(--forest);">View requirements →</a>
   </div>
 
-  <form id="regForm" novalidate>
+  <form id="regForm" action="https://formspree.io/f/mdapllld" method="POST">
 
     <!-- SECTION 1: Child Info -->
     <div class="section-card">
@@ -871,7 +871,7 @@
 
     <div class="submit-area">
       <button type="submit" class="submit-btn">Submit Registration</button>
-      <p class="submit-note">After submitting, you'll receive a confirmation email at the address provided.<br>Questions? Contact us at <a href="/cdn-cgi/l/email-protection#8fe6e1e9e0cffce6e3f9eafdeeebe0ece7e6e3ebfdeae1fceceae1fbeafda1ece0e2" style="color:var(--moss)"><span class="__cf_email__" data-cfemail="4d24232b220d3e24213b283f2c29222e252421293f28233e2e282339283f632e2220">[email&#160;protected]</span></a> or (714) 649-2214.</p>
+      <p class="submit-note">After submitting, you'll receive a confirmation email at the address provided.<br>Questions? Contact us at <a href="mailto:info@silveradochildrenscenter.com" style="color:var(--moss)">info@silveradochildrenscenter.com</a> or (714) 649-2214.</p>
     </div>
 
   </form>
@@ -880,18 +880,21 @@
     <div class="check">🌿</div>
     <h2>Registration Received!</h2>
     <p>Thank you for registering with Silverado Children's Center. We'll be in touch soon to confirm availability and next steps.<br><br>
-    If you paid by Zelle, please make sure your payment has been sent to <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8cbdbdbcccdd1ccd1d7d6898a8bf8dfd5d9d1d496dbd7d5">[email&#160;protected]</a></strong> before your spot can be confirmed.</p>
+    If you paid by Zelle, please make sure your payment has been sent to <strong>friendsofsilveradocc@gmail.com</strong> before your spot can be confirmed.</p>
   </div>
 
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Show/hide Zelle details
   document.querySelectorAll('input[name="paymentMethod"]').forEach(radio => {
     radio.addEventListener('change', () => {
       const detail = document.getElementById('zelleDetail');
-      detail.style.display = radio.value === 'zelle' && radio.checked ? 'block' : 'none';
+      if (detail) detail.style.display = radio.value === 'zelle' && radio.checked ? 'block' : 'none';
     });
   });
 
-  // Auto-fill toda
+  // Auto-fill today's date
+  const sigDate = document.getElementById('sigDate');
+  if (sigDate) sigDate.value = new Date().toISOString().split('T')[0];
+</script></body></html>
