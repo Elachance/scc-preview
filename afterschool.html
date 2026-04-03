@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>After-School Care | Silverado Children's Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --earth: #3d2e1e; --bark: #5c3d1e; --clay: #a0623a; --ochre: #c8893f;
+  --sage: #6b7c5c; --moss: #4a5e3a; --cream: #f5efe4; --parchment: #ede4d3;
+  --stone: #9c9285; --light: #faf7f2;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Jost",sans-serif; background:var(--light); color:var(--earth); }
+
+/* NAV */
+nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
+  padding:0.85rem 2.5rem; display:flex; justify-content:space-between; align-items:center;
+  box-shadow:0 1px 20px rgba(0,0,0,0.08); }
+.nav-logo { font-family:"Cormorant Garamond",serif; font-size:1.1rem; font-weight:600;
+  color:var(--earth); text-decoration:none; letter-spacing:0.04em; }
+.nav-links { display:flex; gap:2rem; list-style:none; }
+.nav-links a { font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--stone); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--ochre); }
+.nav-cta { background:var(--ochre)!important; color:white!important; padding:0.45rem 1.1rem; border-radius:2px; }
+.nav-cta:hover { background:var(--clay)!important; }
+
+/* PAGE HEADER */
+.page-hero { background:var(--earth); padding:4rem 6vw 3rem; color:white; }
+.page-hero .eyebrow { font-size:0.68rem; font-weight:500; letter-spacing:0.22em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:0.75rem; }
+.page-hero h1 { font-family:"Cormorant Garamond",serif; font-size:clamp(2.2rem,5vw,3.5rem);
+  font-weight:500; line-height:1.15; margin-bottom:1rem; }
+.page-hero p { font-size:1rem; font-weight:300; color:rgba(255,255,255,0.7);
+  max-width:560px; line-height:1.75; }
+
+/* CONTENT */
+.container { max-width:900px; margin:0 auto; padding:4rem 6vw; }
+.section { margin-bottom:3.5rem; }
+.section h2 { font-family:"Cormorant Garamond",serif; font-size:1.9rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.75rem; }
+.section h3 { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--bark); margin-bottom:0.5rem; margin-top:1.5rem; }
+.section p { font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a; margin-bottom:1rem; }
+.section ul { padding-left:1.5rem; margin-bottom:1rem; }
+.section ul li { font-size:0.95rem; font-weight:300; line-height:1.8; color:#5a4a3a; }
+.divider { border:none; border-top:1px solid var(--parchment); margin:2.5rem 0; }
+.label { font-size:0.68rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
+  color:var(--ochre); margin-bottom:0.5rem; }
+.highlight-box { background:var(--parchment); border-left:3px solid var(--ochre);
+  border-radius:2px; padding:1.25rem 1.5rem; margin:1.5rem 0; }
+.highlight-box p { margin:0; font-size:0.95rem; font-weight:300; line-height:1.85; color:#5a4a3a; }
+.card-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.5rem; margin-top:1.5rem; }
+.card { background:white; border-radius:3px; padding:1.75rem; box-shadow:0 2px 16px rgba(0,0,0,0.06); }
+.card h3 { font-family:"Cormorant Garamond",serif; font-size:1.3rem; font-weight:500;
+  color:var(--earth); margin:0 0 0.5rem; }
+.card p { font-size:0.88rem; font-weight:300; color:#7a6a5a; line-height:1.65; margin:0; }
+.btn-primary { display:inline-block; background:var(--ochre); color:white;
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; }
+.btn-primary:hover { background:var(--clay); }
+.btn-ghost { display:inline-block; border:1px solid var(--ochre); color:var(--ochre);
+  font-family:"Jost",sans-serif; font-size:0.8rem; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; padding:0.8rem 1.75rem; text-decoration:none;
+  border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
+.btn-ghost:hover { background:var(--parchment); }
+
+/* FOOTER */
+footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
+  display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
+.footer-brand { font-family:"Cormorant Garamond",serif; font-size:1.2rem; color:white; margin-bottom:0.6rem; }
+.footer-tagline { font-size:0.82rem; font-weight:300; line-height:1.7; color:rgba(255,255,255,0.4); max-width:260px; }
+.footer-col-title { font-size:0.65rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--ochre); margin-bottom:1rem; }
+.footer-links { list-style:none; }
+.footer-links li { margin-bottom:0.45rem; }
+.footer-links a { font-size:0.82rem; font-weight:300; color:rgba(255,255,255,0.4);
+  text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:white; }
+.footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
+  color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+@media(max-width:768px) {
+  nav { padding:0.85rem 1.25rem; }
+  .nav-links { display:none; }
+  footer { grid-template-columns:1fr; gap:2rem; }
+  .footer-bottom { flex-direction:column; gap:0.4rem; }
+}
+</style>
+
+<nav>
+  <a href="index.html" class="nav-logo">Silverado Children's Center</a>
+  <ul class="nav-links">
+    <li><a href="about.html">About</a></li>
+    <li><a href="programs.html">Programs</a></li>
+    <li><a href="summer.html">Summer</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="tour.html" class="nav-cta">Schedule a Tour</a></li>
+  </ul>
+</nav>
+</head><body>
+
+<div class="page-hero">
+  <p class="eyebrow">Extended Care</p>
+  <h1>After-School Care</h1>
+  <p>When the school day ends, the canyon is still open. SCC&rsquo;s after-school program gives TK through 1st-grade children a calm, nature-filled afternoon before pickup.</p>
+</div>
+
+<div class="container">
+
+  <div class="section">
+    <p class="label">The Basics</p>
+    <h2>Hours &amp; Availability</h2>
+    <p>After-school care runs <strong>Monday through Friday, 2:00–5:00 PM</strong> and is available for children ages 4–6 (TK, Kindergarten, and 1st grade) through the day before their 7th birthday.</p>
+
+    <div class="highlight-box">
+      <p><strong>Transportation available:</strong> We offer pickup from <strong>Portola Hills Elementary</strong> and <strong>Trabuco Elementary</strong> on <strong>Tuesdays and Thursdays</strong>. Contact us to confirm current availability and scheduling.</p>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">A Typical Afternoon</p>
+    <h2>What the Afternoon Looks Like</h2>
+    <p>After-school at SCC follows a simple, unhurried rhythm that gives kids room to decompress and move after a structured school day.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h3>Snack</h3>
+        <p>Children settle in with an afternoon snack before heading outside. The canyon air has a way of working up an appetite.</p>
+      </div>
+      <div class="card">
+        <h3>Outside Exploration</h3>
+        <p>Free play in the yards — the animals, the climbing structures, the garden, and whatever the afternoon brings. No screens, no schedules.</p>
+      </div>
+      <div class="card">
+        <h3>Hike</h3>
+        <p>Afternoons often end with a walk along the trail. Kids who spent the morning sitting at desks get to move, observe, and breathe in the canyon.</p>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="section">
+    <p class="label">Getting Started</p>
+    <h2>How to Enroll</h2>
+    <p>After-school care enrollment follows the same process as our preschool program. If your child is already enrolled at SCC, contact us directly to add after-school to your schedule. New families should start with a campus tour.</p>
+    <p><a href="mailto:info@silveradochildrenscenter.com" style="color:var(--clay);">info@silveradochildrenscenter.com</a> &nbsp;&middot;&nbsp; <a href="tel:7146492214" style="color:var(--clay);">(714) 649-2214</a></p>
+  </div>
+
+  <div style="text-align:center; padding:1rem 0 2rem;">
+    <a href="tour.html" class="btn-primary">Schedule a Tour</a>
+    <a href="scc-registration-form.html" class="btn-ghost">Begin Registration</a>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-brand">Silverado Children's Center</div>
+    <p class="footer-tagline">A nature-based preschool in the canyons of Silverado, serving children ages 2&ndash;7 since 1990.</p>
+    <p class="footer-tagline" style="margin-top:0.75rem;">All students must meet California&rsquo;s immunization requirements. <a href="vaccines.html" style="color:rgba(255,255,255,0.5);text-decoration:underline;">Learn more &rarr;</a></p>
+  </div>
+  <div>
+    <div class="footer-col-title">Navigate</div>
+    <ul class="footer-links">
+      <li><a href="about.html">About SCC</a></li>
+      <li><a href="programs.html">Programs</a></li>
+      <li><a href="scc-registration-form.html">Registration</a></li>
+      <li><a href="vaccines.html">Vaccines</a></li>
+      <li><a href="summer.html">Summer Program</a></li>
+      <li><a href="afterschool.html">After-School Care</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="faq.html">FAQ</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-col-title">Contact &amp; Community</div>
+    <ul class="footer-links">
+      <li>7525 Santiago Canyon Rd</li>
+      <li>Silverado, CA 92676</li>
+      <li><a href="mailto:info@silveradochildrenscenter.com">info@silveradochildrenscenter.com</a></li>
+      <li><a href="tel:7146492214">(714) 649-2214</a></li>
+      <li style="margin-top:0.6rem"><a href="foscc.html">Friends of SCC (FoSCC)</a></li>
+      <li><a href="wheelie.html">Wheelie Fun Fest</a></li>
+      <li><a href="merchandise.html">Merchandise</a></li>
+      <li><a href="https://www.facebook.com/SilveradoCC">Facebook</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span>&copy; 2026 Silverado Children&rsquo;s Center &middot; A program of SMRPD</span>
+  <span>7525 Santiago Canyon Road, Silverado CA 92676</span>
+</div>
+</body></html>
