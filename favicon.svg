@@ -1,11 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#3d2e1e"/>
+  <rect width="32" height="32" rx="6" fill="#c8893f"/>
   <!-- trunk -->
-  <rect x="14" y="22" width="4" height="6" fill="#c8893f"/>
-  <!-- bottom layer -->
-  <polygon points="16,8 7,22 25,22" fill="#6b7c5c"/>
-  <!-- middle layer -->
-  <polygon points="16,4 9,16 23,16" fill="#4a5e3a"/>
-  <!-- top layer -->
-  <polygon points="16,1 11,12 21,12" fill="#6b7c5c"/>
+  <rect x="14.5" y="21" width="3" height="8" rx="1" fill="#3d2e1e"/>
+  <!-- oak canopy — overlapping circles for a rounded spreading shape -->
+  <circle cx="16" cy="13" r="8" fill="#3d2e1e"/>
+  <circle cx="10" cy="15" r="6" fill="#3d2e1e"/>
+  <circle cx="22" cy="15" r="6" fill="#3d2e1e"/>
+  <circle cx="16" cy="17" r="6" fill="#3d2e1e"/>
 </svg>
