@@ -72,6 +72,11 @@ nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
   padding:0.75rem 1rem; margin:0.5rem 0; font-size:0.82rem; color:#7a5c1e;
   font-style:italic; }
 .placeholder::before { content:"⚠️ PLACEHOLDER — "; font-weight:600; }
+.photo-strip { display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; margin:2rem 0 1rem; }
+.photo-strip .p { overflow:hidden; border-radius:2px; aspect-ratio:4/3; background:var(--parchment); }
+.photo-strip .p img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease; }
+.photo-strip .p:hover img { transform:scale(1.03); }
+@media(max-width:600px) { .photo-strip { grid-template-columns:1fr 1fr; } }
 
 /* FOOTER */
 footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
@@ -132,6 +137,15 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
     <p class="label">The Space</p>
     <h2>Our Classroom</h2>
     <p>Our classroom is both indoors and outdoors. Every day begins with a morning hike through the canyon — along Bobcat Creek, up to the Hawk Tree, through the Stables, or out to the trails behind the school.</p>
+
+  <div class="photo-strip">
+    <div class="p"><img loading="lazy" src="photos/creek-wading-01.webp" alt="Children wading through Bobcat Creek"></div>
+    <div class="p"><img loading="lazy" src="photos/walking-stick-insect.webp" alt="Child holding a walking stick insect found on the trail"></div>
+    <div class="p"><img loading="lazy" src="photos/baby-goat-hug.webp" alt="Child cradling a baby goat at The Stables"></div>
+    <div class="p"><img loading="lazy" src="photos/teacher-reading-box.webp" alt="Teacher reading to children inside a large painted cardboard installation"></div>
+    <div class="p"><img loading="lazy" src="photos/rock-scramble.webp" alt="Children scrambling up a canyon rock face"></div>
+    <div class="p"><img loading="lazy" src="photos/rainbow-canyon-02.webp" alt="Double rainbow over the canyon at Silverado"></div>
+  </div>
   </div>
   <div style="text-align:center; padding:1rem 0 2rem;">
     <a href="tour.html" class="btn-primary">Schedule a Tour</a>
