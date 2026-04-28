@@ -89,7 +89,7 @@ Footer community links:
 
 ## Key content facts (do not invent or change these)
 - **Founded:** 1990
-- **Ages served:** 2–7
+- **Ages served:** 2–6
 - **School hours:** 8:30 AM – 5:00 PM, Monday–Friday
 - **Address:** 7525 Santiago Canyon Rd, Silverado, CA 92676
 - **Phone:** (714) 649-2214
@@ -101,7 +101,7 @@ Footer community links:
 
 ### Classroom groupings
 - Seedlings / Acorns: ages 2–3
-- Pinecones / Oak Trees: ages 4–7
+- Pinecones / Oak Trees: ages 4–6
 
 ### Schedule options
 - Half Day, Three-Quarter Day, Full Day
