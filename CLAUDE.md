@@ -101,7 +101,7 @@ Footer community links:
 
 ### Classroom groupings
 - Seedlings / Acorns: ages 2–3
-- Pinecones / Oak Trees: ages 4–6
+- Pinecones: ages 4–6
 
 ### Schedule options
 - Half Day, Three-Quarter Day, Full Day
