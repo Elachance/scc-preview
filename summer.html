@@ -105,11 +105,16 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
 .footer-links a:hover { color:white; }
 .footer-bottom { background:#140e06; padding:1rem 6vw; font-size:0.72rem;
   color:rgba(255,255,255,0.2); display:flex; justify-content:space-between; }
+.summer-photos { display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; margin:1.75rem 0 0; }
+.summer-photos .p { overflow:hidden; border-radius:2px; aspect-ratio:4/3; background:var(--parchment); }
+.summer-photos .p img { width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.4s ease; }
+.summer-photos .p:hover img { transform:scale(1.03); }
 @media(max-width:768px) {
   nav { padding:0.85rem 1.25rem; }
   .nav-links { display:none; }
   footer { grid-template-columns:1fr; gap:2rem; }
   .footer-bottom { flex-direction:column; gap:0.4rem; }
+  .summer-photos { grid-template-columns:1fr 1fr; }
 }
 </style>
 
@@ -207,6 +212,14 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
       </div>
 
     </div>
+    <p class="label" style="margin-top:2rem;">From Mud Day</p>
+    <div class="summer-photos">
+      <div class="p"><img loading="lazy" src="photos/summer-mud-play-2.webp" alt="Child sliding into a mud pool ringed by logs, other kids playing in background"></div>
+      <div class="p"><img loading="lazy" src="photos/summer-mud-play-1.webp" alt="Two children sitting in deep mud together, playing with bowls and sticks"></div>
+      <div class="p"><img loading="lazy" src="photos/summer-mud-play-3.webp" alt="Two children burying their hands deep in mud, viewed from above"></div>
+      <div class="p"><img loading="lazy" src="photos/summer-mud-feet.webp" alt="Children's bare feet and legs submerged in mud together, viewed from above"></div>
+      <div class="p"><img loading="lazy" src="photos/summer-muddy-reading.webp" alt="Girl with mud-caked legs sitting quietly reading a nature book after mud day"></div>
+    </div>
   </div>
 
   <hr class="divider">
@@ -244,7 +257,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
   <div class="cta-block">
     <p>Ready to join us this summer?</p>
     <a href="tour.html" class="btn-primary">Schedule a Tour</a>
-    <a href="registration-start.html" class="btn-ghost">Begin Registration</a>
+    <a href="scc-registration-form.html" class="btn-ghost">Begin Enrollment</a>
   </div>
 
 </div>
