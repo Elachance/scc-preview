@@ -94,6 +94,29 @@ nav { position:sticky; top:0; z-index:100; background:rgba(245,239,228,0.97);
   border-radius:2px; transition:background 0.2s; margin-top:1rem; margin-left:0.75rem; }
 .btn-ghost:hover { background:var(--parchment); }
 
+/* VOLUNTEER CALLOUT */
+.volunteer-callout { margin-top:2.5rem; padding:1.75rem 2rem; background:var(--cream);
+  border-radius:3px; border-left:3px solid var(--ochre); }
+.volunteer-heading { font-family:"Cormorant Garamond",serif; font-size:1.4rem; font-weight:500;
+  color:var(--earth); margin-bottom:0.5rem; }
+.volunteer-desc { font-size:0.88rem; font-weight:300; color:var(--stone);
+  line-height:1.7; margin-bottom:1.25rem; max-width:500px; }
+.volunteer-form { max-width:560px; }
+.vf-row { display:grid; grid-template-columns:1fr 1fr; gap:0.75rem; }
+.vf-field { display:flex; flex-direction:column; margin-bottom:0.75rem; }
+.vf-field label { font-size:0.7rem; font-weight:500; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--stone); margin-bottom:0.35rem; }
+.vf-field input, .vf-field textarea { font-family:"Jost",sans-serif; font-size:0.9rem;
+  font-weight:300; padding:0.6rem 0.8rem; border:1px solid #ddd5c8; border-radius:2px;
+  background:white; color:var(--earth); outline:none; transition:border-color 0.2s; }
+.vf-field input:focus, .vf-field textarea:focus { border-color:var(--ochre); }
+.vf-field textarea { resize:vertical; }
+.vf-submit { background:var(--ochre); color:white; font-family:"Jost",sans-serif;
+  font-size:0.78rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase;
+  padding:0.8rem 1.75rem; border:none; border-radius:2px; cursor:pointer;
+  transition:background 0.2s; margin-top:0.25rem; }
+.vf-submit:hover { background:var(--clay); }
+
 /* FOOTER */
 footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
   display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:3rem; margin-top:4rem; }
@@ -181,6 +204,31 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
       <img loading="lazy" src="photos/horse-with-teacher.webp" alt="Teacher leaning in to nuzzle the miniature horse in the stables yard with canyon hills behind">
     </div>
   </div>
+
+  <div class="volunteer-callout">
+    <p class="section-label">Get Involved</p>
+    <h3 class="volunteer-heading">Interested in Volunteering with Our Animals?</h3>
+    <p class="volunteer-desc">We occasionally welcome community members to help care for our campus animals. If you&rsquo;d like to be considered, drop us a note and Laurie will be in touch.</p>
+    <form class="volunteer-form" action="https://formspree.io/f/mdapllld" method="POST">
+      <input type="hidden" name="_subject" value="Animal Volunteer Interest — SCC">
+      <input type="hidden" name="form_type" value="Animal Volunteer Interest">
+      <div class="vf-row">
+        <div class="vf-field">
+          <label for="vf-name">Your Name</label>
+          <input type="text" id="vf-name" name="name" required>
+        </div>
+        <div class="vf-field">
+          <label for="vf-email">Email Address</label>
+          <input type="email" id="vf-email" name="email" required>
+        </div>
+      </div>
+      <div class="vf-field">
+        <label for="vf-message">Tell us a little about yourself <span style="font-weight:300;text-transform:none;letter-spacing:0;">(optional)</span></label>
+        <textarea id="vf-message" name="message" rows="3"></textarea>
+      </div>
+      <button type="submit" class="vf-submit">Send My Interest</button>
+    </form>
+  </div>
 </div>
 
 <div class="gallery-divider"><hr></div>
@@ -194,9 +242,6 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
   <div class="photo-grid col-3">
     <div class="photo-wrap ratio-4-3">
       <img loading="lazy" src="photos/monarch-caterpillar.webp" alt="Monarch caterpillar climbing a milkweed stem">
-    </div>
-    <div class="photo-wrap ratio-4-3">
-      <img loading="lazy" src="photos/monarch-chrysalis.webp" alt="Monarch caterpillar curled into a J-shape, beginning to form a chrysalis">
     </div>
     <div class="photo-wrap ratio-4-3">
       <img loading="lazy" src="photos/dragonfly.webp" alt="Giant green darner dragonfly resting on a piece of wood held by children">
