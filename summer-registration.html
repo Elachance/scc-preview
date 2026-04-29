@@ -70,46 +70,47 @@ h2.section-h { font-family:"Cormorant Garamond",serif; font-size:1.75rem; font-w
 .field input:focus, .field select:focus, .field textarea:focus { border-color:var(--ochre); }
 .field textarea { resize:vertical; }
 
-/* WEEK CARDS */
-.weeks-list { display:flex; flex-direction:column; gap:0.75rem; margin-top:1.25rem; }
-.week-card { border:1px solid var(--parchment); border-radius:3px; background:white;
-  overflow:hidden; transition:border-color 0.2s; }
-.week-card.active { border-color:var(--ochre); }
-.week-header { display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem;
+/* SESSION CARDS */
+.sessions-list { display:flex; flex-direction:column; gap:0.75rem; margin-top:1.25rem; }
+.session-card { border:1.5px solid var(--parchment); border-radius:3px; background:white;
+  overflow:hidden; transition:border-color 0.15s; }
+.session-card.active { border-color:var(--ochre); }
+
+.session-header { display:flex; align-items:center; gap:1rem; padding:1rem 1.25rem;
   cursor:pointer; user-select:none; }
-.week-toggle { appearance:none; width:1.1rem; height:1.1rem; border:2px solid var(--stone);
+.sess-toggle { appearance:none; width:1.15rem; height:1.15rem; border:2px solid var(--stone);
   border-radius:2px; cursor:pointer; flex-shrink:0; position:relative; transition:all 0.15s; }
-.week-toggle:checked { background:var(--ochre); border-color:var(--ochre); }
-.week-toggle:checked::after { content:''; position:absolute; left:2px; top:-1px;
+.sess-toggle:checked { background:var(--ochre); border-color:var(--ochre); }
+.sess-toggle:checked::after { content:''; position:absolute; left:2px; top:-1px;
   width:5px; height:9px; border:2px solid white; border-left:none; border-top:none;
   transform:rotate(45deg); }
-.week-meta { flex:1; }
-.week-num { font-size:0.65rem; font-weight:500; letter-spacing:0.18em; text-transform:uppercase;
-  color:var(--stone); }
-.week-theme { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-weight:500;
+.sess-meta { flex:1; }
+.sess-num { font-size:0.63rem; font-weight:500; letter-spacing:0.18em;
+  text-transform:uppercase; color:var(--stone); }
+.sess-title { font-family:"Cormorant Garamond",serif; font-size:1.15rem; font-weight:500;
   color:var(--earth); }
-.week-dates { font-size:0.78rem; font-weight:300; color:var(--stone); margin-top:0.1rem; }
-.week-body { display:none; padding:0 1.25rem 1.25rem; border-top:1px solid var(--parchment); }
-.week-card.active .week-body { display:block; }
+.sess-themes { font-size:0.78rem; font-weight:300; color:var(--stone); margin-top:0.1rem; font-style:italic; }
+.full-summer-badge { font-size:0.68rem; font-weight:500; letter-spacing:0.08em;
+  text-transform:uppercase; color:var(--ochre); background:rgba(200,137,63,0.1);
+  padding:0.2rem 0.6rem; border-radius:2px; white-space:nowrap; }
 
-.pickup-row { margin:1rem 0 1.25rem; }
-.pickup-row .row-label { font-size:0.7rem; font-weight:500; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--stone); margin-bottom:0.5rem; }
-.pickup-options { display:flex; gap:1.25rem; flex-wrap:wrap; }
-.radio-opt { display:flex; align-items:center; gap:0.4rem; cursor:pointer; }
-.radio-opt input { accent-color:var(--ochre); cursor:pointer; }
-.radio-opt span { font-size:0.88rem; font-weight:300; }
+.session-body { display:none; padding:1rem 1.25rem 1.25rem;
+  border-top:1px solid var(--parchment); background:rgba(200,137,63,0.03); }
+.session-card.active .session-body { display:block; }
 
-.days-row .row-label { font-size:0.7rem; font-weight:500; letter-spacing:0.12em;
-  text-transform:uppercase; color:var(--stone); margin-bottom:0.5rem; }
-.days-grid { display:flex; gap:0.75rem; flex-wrap:wrap; }
-.day-opt { display:flex; flex-direction:column; align-items:center; gap:0.3rem; cursor:pointer; }
-.day-opt input { accent-color:var(--ochre); cursor:pointer; width:1rem; height:1rem; }
-.day-opt span { font-size:0.75rem; font-weight:400; color:var(--stone); }
-.day-opt span.day-date { font-size:0.68rem; font-weight:300; }
+.sess-options { display:grid; grid-template-columns:1fr 1fr; gap:1.25rem; }
+.opt-group { }
+.opt-label { font-size:0.68rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase;
+  color:var(--stone); margin-bottom:0.5rem; display:block; }
+.opt-radios { display:flex; flex-direction:column; gap:0.35rem; }
+.radio-row { display:flex; align-items:center; gap:0.5rem; cursor:pointer; }
+.radio-row input { accent-color:var(--ochre); cursor:pointer; flex-shrink:0; }
+.radio-row span { font-size:0.88rem; font-weight:300; }
 
-.week-note { font-size:0.8rem; font-weight:300; color:var(--clay); margin-top:0.75rem;
-  padding:0.5rem 0.75rem; background:rgba(200,137,63,0.08); border-radius:2px; }
+/* SIBLING */
+.sibling-wrap { display:flex; align-items:center; gap:0.6rem; margin-top:0.25rem; }
+.sibling-wrap input { accent-color:var(--ochre); width:1rem; height:1rem; cursor:pointer; }
+.sibling-wrap label { font-size:0.88rem; font-weight:300; cursor:pointer; }
 
 /* AGREEMENT */
 .agreement-wrap { display:flex; align-items:flex-start; gap:0.75rem; margin:1.5rem 0; }
@@ -125,11 +126,6 @@ h2.section-h { font-family:"Cormorant Garamond",serif; font-size:1.75rem; font-w
 .submit-btn:hover { background:var(--clay); }
 .submit-note { font-size:0.8rem; font-weight:300; color:var(--stone); margin-top:0.75rem;
   text-align:center; line-height:1.65; }
-
-/* SIBLING */
-.sibling-wrap { display:flex; align-items:center; gap:0.6rem; margin-top:0.25rem; }
-.sibling-wrap input { accent-color:var(--ochre); width:1rem; height:1rem; cursor:pointer; }
-.sibling-wrap label { font-size:0.88rem; font-weight:300; cursor:pointer; }
 
 /* FOOTER */
 footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
@@ -150,7 +146,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
   nav { padding:0.85rem 1.25rem; }
   .nav-links { display:none; }
   .field-row, .field-row.col-3 { grid-template-columns:1fr; }
-  .pickup-options { gap:0.75rem; }
+  .sess-options { grid-template-columns:1fr; gap:1rem; }
   footer { grid-template-columns:1fr; gap:2rem; }
   .footer-bottom { flex-direction:column; gap:0.4rem; }
 }
@@ -172,7 +168,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
 <div class="page-hero">
   <p class="eyebrow">Summer 2026 &mdash; Kids Club</p>
   <h1>Summer Registration</h1>
-  <p>Register your child for any combination of weeks. A $125 non-refundable registration fee per child is due with this form to hold your spot.</p>
+  <p>Register your child for any combination of 2-week sessions. A $125 non-refundable registration fee per child holds your spot.</p>
 </div>
 
 <div class="container">
@@ -216,7 +212,7 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
         </tbody>
       </table>
     </div>
-    <p style="font-size:0.8rem;font-weight:300;color:var(--stone);margin-top:0.5rem;">Sessions run in 2-week blocks. You may register for individual sessions or the full summer. Laurie will confirm your total and payment details after receiving your form.</p>
+    <p style="font-size:0.8rem;font-weight:300;color:var(--stone);margin-top:0.5rem;">Laurie will confirm your total and payment details after receiving your form.</p>
   </div>
 
   <hr class="divider">
@@ -254,271 +250,170 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
 
     <hr class="divider">
 
-    <!-- WEEK SELECTION -->
+    <!-- SESSION SELECTION -->
     <div class="form-section">
       <p class="label">Step 2</p>
-      <h2 class="section-h">Choose Your Weeks</h2>
-      <p style="font-size:0.9rem;font-weight:300;color:var(--stone);line-height:1.75;margin-bottom:0.5rem;">Check each week your child will attend. For each week, select a pickup time and which days they&rsquo;ll be there.</p>
+      <h2 class="section-h">Choose Your Sessions</h2>
+      <p style="font-size:0.9rem;font-weight:300;color:var(--stone);line-height:1.75;">Check each session you&rsquo;d like to enroll in, then choose your pickup time and days for that session.</p>
 
-      <div class="weeks-list">
+      <div class="sessions-list">
 
-        <!-- WEEK 1 -->
-        <div class="week-card" id="card-1">
-          <div class="week-header" onclick="toggleWeek(1)">
-            <input type="checkbox" class="week-toggle" id="wk1" name="week_1_attending" value="Yes" onchange="toggleWeek(1)">
-            <div class="week-meta">
-              <div class="week-num">Session 1 &mdash; Week 1</div>
-              <div class="week-theme">Summer Kick Off</div>
-              <div class="week-dates">June 22 &ndash; 26</div>
+        <!-- SESSION 1 -->
+        <div class="session-card" id="sc1">
+          <div class="session-header" onclick="toggleSession(1)">
+            <input type="checkbox" class="sess-toggle" id="st1" name="session_1" value="Yes" onchange="toggleSession(1)">
+            <div class="sess-meta">
+              <div class="sess-num">Session 1</div>
+              <div class="sess-title">June 22 &ndash; July 3</div>
+              <div class="sess-themes">Summer Kick Off &middot; Wonders of Mud</div>
             </div>
           </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_1_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_1_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_1_pickup" value="5:00pm"><span>5:00 pm</span></label>
+          <div class="session-body">
+            <div class="sess-options">
+              <div class="opt-group">
+                <span class="opt-label">Days per Week</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s1_days" value="5 days (Mon–Fri)"><span>5 days &mdash; Mon through Fri</span></label>
+                  <label class="radio-row"><input type="radio" name="s1_days" value="3 days (Mon/Wed/Fri)"><span>3 days &mdash; Mon, Wed, Fri</span></label>
+                </div>
               </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_1_days" value="Mon Jun 22"><span>Mon</span><span class="day-date">Jun 22</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_1_days" value="Tue Jun 23"><span>Tue</span><span class="day-date">Jun 23</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_1_days" value="Wed Jun 24"><span>Wed</span><span class="day-date">Jun 24</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_1_days" value="Thu Jun 25"><span>Thu</span><span class="day-date">Jun 25</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_1_days" value="Fri Jun 26"><span>Fri</span><span class="day-date">Jun 26</span></label>
+              <div class="opt-group">
+                <span class="opt-label">Pickup Time</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s1_pickup" value="12:30pm"><span>12:30 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s1_pickup" value="3:00pm"><span>3:00 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s1_pickup" value="5:00pm"><span>5:00 pm</span></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WEEK 2 -->
-        <div class="week-card" id="card-2">
-          <div class="week-header" onclick="toggleWeek(2)">
-            <input type="checkbox" class="week-toggle" id="wk2" name="week_2_attending" value="Yes" onchange="toggleWeek(2)">
-            <div class="week-meta">
-              <div class="week-num">Session 1 &mdash; Week 2</div>
-              <div class="week-theme">Wonders of Mud</div>
-              <div class="week-dates">June 29 &ndash; July 3</div>
+        <!-- SESSION 2 -->
+        <div class="session-card" id="sc2">
+          <div class="session-header" onclick="toggleSession(2)">
+            <input type="checkbox" class="sess-toggle" id="st2" name="session_2" value="Yes" onchange="toggleSession(2)">
+            <div class="sess-meta">
+              <div class="sess-num">Session 2</div>
+              <div class="sess-title">July 6 &ndash; 17</div>
+              <div class="sess-themes">Water &middot; Medieval</div>
             </div>
           </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_2_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_2_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_2_pickup" value="5:00pm"><span>5:00 pm</span></label>
+          <div class="session-body">
+            <div class="sess-options">
+              <div class="opt-group">
+                <span class="opt-label">Days per Week</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s2_days" value="5 days (Mon–Fri)"><span>5 days &mdash; Mon through Fri</span></label>
+                  <label class="radio-row"><input type="radio" name="s2_days" value="3 days (Mon/Wed/Fri)"><span>3 days &mdash; Mon, Wed, Fri</span></label>
+                </div>
               </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_2_days" value="Mon Jun 29"><span>Mon</span><span class="day-date">Jun 29</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_2_days" value="Tue Jun 30"><span>Tue</span><span class="day-date">Jun 30</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_2_days" value="Wed Jul 1"><span>Wed</span><span class="day-date">Jul 1</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_2_days" value="Thu Jul 2"><span>Thu</span><span class="day-date">Jul 2</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_2_days" value="Fri Jul 3"><span>Fri</span><span class="day-date">Jul 3</span></label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- WEEK 3 -->
-        <div class="week-card" id="card-3">
-          <div class="week-header" onclick="toggleWeek(3)">
-            <input type="checkbox" class="week-toggle" id="wk3" name="week_3_attending" value="Yes" onchange="toggleWeek(3)">
-            <div class="week-meta">
-              <div class="week-num">Session 2 &mdash; Week 3</div>
-              <div class="week-theme">Water</div>
-              <div class="week-dates">July 6 &ndash; 10</div>
-            </div>
-          </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_3_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_3_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_3_pickup" value="5:00pm"><span>5:00 pm</span></label>
-              </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_3_days" value="Mon Jul 6"><span>Mon</span><span class="day-date">Jul 6</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_3_days" value="Tue Jul 7"><span>Tue</span><span class="day-date">Jul 7</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_3_days" value="Wed Jul 8"><span>Wed</span><span class="day-date">Jul 8</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_3_days" value="Thu Jul 9"><span>Thu</span><span class="day-date">Jul 9</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_3_days" value="Fri Jul 10"><span>Fri</span><span class="day-date">Jul 10</span></label>
+              <div class="opt-group">
+                <span class="opt-label">Pickup Time</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s2_pickup" value="12:30pm"><span>12:30 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s2_pickup" value="3:00pm"><span>3:00 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s2_pickup" value="5:00pm"><span>5:00 pm</span></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WEEK 4 -->
-        <div class="week-card" id="card-4">
-          <div class="week-header" onclick="toggleWeek(4)">
-            <input type="checkbox" class="week-toggle" id="wk4" name="week_4_attending" value="Yes" onchange="toggleWeek(4)">
-            <div class="week-meta">
-              <div class="week-num">Session 2 &mdash; Week 4</div>
-              <div class="week-theme">Medieval</div>
-              <div class="week-dates">July 13 &ndash; 17</div>
+        <!-- SESSION 3 -->
+        <div class="session-card" id="sc3">
+          <div class="session-header" onclick="toggleSession(3)">
+            <input type="checkbox" class="sess-toggle" id="st3" name="session_3" value="Yes" onchange="toggleSession(3)">
+            <div class="sess-meta">
+              <div class="sess-num">Session 3</div>
+              <div class="sess-title">July 20 &ndash; 31</div>
+              <div class="sess-themes">Pirates &middot; Animals</div>
             </div>
           </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_4_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_4_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_4_pickup" value="5:00pm"><span>5:00 pm</span></label>
+          <div class="session-body">
+            <div class="sess-options">
+              <div class="opt-group">
+                <span class="opt-label">Days per Week</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s3_days" value="5 days (Mon–Fri)"><span>5 days &mdash; Mon through Fri</span></label>
+                  <label class="radio-row"><input type="radio" name="s3_days" value="3 days (Mon/Wed/Fri)"><span>3 days &mdash; Mon, Wed, Fri</span></label>
+                </div>
               </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_4_days" value="Mon Jul 13"><span>Mon</span><span class="day-date">Jul 13</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_4_days" value="Tue Jul 14"><span>Tue</span><span class="day-date">Jul 14</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_4_days" value="Wed Jul 15"><span>Wed</span><span class="day-date">Jul 15</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_4_days" value="Thu Jul 16"><span>Thu</span><span class="day-date">Jul 16</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_4_days" value="Fri Jul 17"><span>Fri</span><span class="day-date">Jul 17</span></label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- WEEK 5 -->
-        <div class="week-card" id="card-5">
-          <div class="week-header" onclick="toggleWeek(5)">
-            <input type="checkbox" class="week-toggle" id="wk5" name="week_5_attending" value="Yes" onchange="toggleWeek(5)">
-            <div class="week-meta">
-              <div class="week-num">Session 3 &mdash; Week 5</div>
-              <div class="week-theme">Pirates</div>
-              <div class="week-dates">July 20 &ndash; 24</div>
-            </div>
-          </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_5_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_5_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_5_pickup" value="5:00pm"><span>5:00 pm</span></label>
-              </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_5_days" value="Mon Jul 20"><span>Mon</span><span class="day-date">Jul 20</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_5_days" value="Tue Jul 21"><span>Tue</span><span class="day-date">Jul 21</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_5_days" value="Wed Jul 22"><span>Wed</span><span class="day-date">Jul 22</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_5_days" value="Thu Jul 23"><span>Thu</span><span class="day-date">Jul 23</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_5_days" value="Fri Jul 24"><span>Fri</span><span class="day-date">Jul 24</span></label>
+              <div class="opt-group">
+                <span class="opt-label">Pickup Time</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s3_pickup" value="12:30pm"><span>12:30 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s3_pickup" value="3:00pm"><span>3:00 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s3_pickup" value="5:00pm"><span>5:00 pm</span></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WEEK 6 -->
-        <div class="week-card" id="card-6">
-          <div class="week-header" onclick="toggleWeek(6)">
-            <input type="checkbox" class="week-toggle" id="wk6" name="week_6_attending" value="Yes" onchange="toggleWeek(6)">
-            <div class="week-meta">
-              <div class="week-num">Session 3 &mdash; Week 6</div>
-              <div class="week-theme">Animals</div>
-              <div class="week-dates">July 27 &ndash; 31</div>
+        <!-- SESSION 4 -->
+        <div class="session-card" id="sc4">
+          <div class="session-header" onclick="toggleSession(4)">
+            <input type="checkbox" class="sess-toggle" id="st4" name="session_4" value="Yes" onchange="toggleSession(4)">
+            <div class="sess-meta">
+              <div class="sess-num">Session 4</div>
+              <div class="sess-title">August 3 &ndash; 14</div>
+              <div class="sess-themes">Ocean &middot; Theme Coming Soon</div>
             </div>
           </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_6_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_6_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_6_pickup" value="5:00pm"><span>5:00 pm</span></label>
+          <div class="session-body">
+            <div class="sess-options">
+              <div class="opt-group">
+                <span class="opt-label">Days per Week</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s4_days" value="5 days (Mon–Fri)"><span>5 days &mdash; Mon through Fri</span></label>
+                  <label class="radio-row"><input type="radio" name="s4_days" value="3 days (Mon/Wed/Fri)"><span>3 days &mdash; Mon, Wed, Fri</span></label>
+                </div>
               </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_6_days" value="Mon Jul 27"><span>Mon</span><span class="day-date">Jul 27</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_6_days" value="Tue Jul 28"><span>Tue</span><span class="day-date">Jul 28</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_6_days" value="Wed Jul 29"><span>Wed</span><span class="day-date">Jul 29</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_6_days" value="Thu Jul 30"><span>Thu</span><span class="day-date">Jul 30</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_6_days" value="Fri Jul 31"><span>Fri</span><span class="day-date">Jul 31</span></label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- WEEK 7 -->
-        <div class="week-card" id="card-7">
-          <div class="week-header" onclick="toggleWeek(7)">
-            <input type="checkbox" class="week-toggle" id="wk7" name="week_7_attending" value="Yes" onchange="toggleWeek(7)">
-            <div class="week-meta">
-              <div class="week-num">Session 4 &mdash; Week 7</div>
-              <div class="week-theme">Ocean</div>
-              <div class="week-dates">August 3 &ndash; 7</div>
-            </div>
-          </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_7_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_7_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_7_pickup" value="5:00pm"><span>5:00 pm</span></label>
-              </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_7_days" value="Mon Aug 3"><span>Mon</span><span class="day-date">Aug 3</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_7_days" value="Tue Aug 4"><span>Tue</span><span class="day-date">Aug 4</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_7_days" value="Wed Aug 5"><span>Wed</span><span class="day-date">Aug 5</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_7_days" value="Thu Aug 6"><span>Thu</span><span class="day-date">Aug 6</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_7_days" value="Fri Aug 7"><span>Fri</span><span class="day-date">Aug 7</span></label>
+              <div class="opt-group">
+                <span class="opt-label">Pickup Time</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="s4_pickup" value="12:30pm"><span>12:30 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s4_pickup" value="3:00pm"><span>3:00 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="s4_pickup" value="5:00pm"><span>5:00 pm</span></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- WEEK 8 -->
-        <div class="week-card" id="card-8">
-          <div class="week-header" onclick="toggleWeek(8)">
-            <input type="checkbox" class="week-toggle" id="wk8" name="week_8_attending" value="Yes" onchange="toggleWeek(8)">
-            <div class="week-meta">
-              <div class="week-num">Session 4 &mdash; Week 8</div>
-              <div class="week-theme">Theme Coming Soon</div>
-              <div class="week-dates">August 10 &ndash; 14</div>
+        <!-- FULL SUMMER -->
+        <div class="session-card" id="sc-full">
+          <div class="session-header" onclick="toggleSession('full')">
+            <input type="checkbox" class="sess-toggle" id="st-full" name="session_full" value="Yes" onchange="toggleSession('full')">
+            <div class="sess-meta">
+              <div class="sess-num">Full Summer &mdash; <span style="color:var(--ochre);">Best Value</span></div>
+              <div class="sess-title">June 22 &ndash; August 14</div>
+              <div class="sess-themes">All 4 sessions &middot; 8 weeks</div>
             </div>
           </div>
-          <div class="week-body">
-            <div class="pickup-row">
-              <div class="row-label">Pickup Time</div>
-              <div class="pickup-options">
-                <label class="radio-opt"><input type="radio" name="week_8_pickup" value="12:30pm"><span>12:30 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_8_pickup" value="3:00pm"><span>3:00 pm</span></label>
-                <label class="radio-opt"><input type="radio" name="week_8_pickup" value="5:00pm"><span>5:00 pm</span></label>
+          <div class="session-body">
+            <div class="sess-options">
+              <div class="opt-group">
+                <span class="opt-label">Days per Week</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="sfull_days" value="5 days (Mon–Fri)"><span>5 days &mdash; Mon through Fri</span></label>
+                  <label class="radio-row"><input type="radio" name="sfull_days" value="3 days (Mon/Wed/Fri)"><span>3 days &mdash; Mon, Wed, Fri</span></label>
+                </div>
               </div>
-            </div>
-            <div class="days-row">
-              <div class="row-label">Days Attending</div>
-              <div class="days-grid">
-                <label class="day-opt"><input type="checkbox" name="week_8_days" value="Mon Aug 10"><span>Mon</span><span class="day-date">Aug 10</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_8_days" value="Tue Aug 11"><span>Tue</span><span class="day-date">Aug 11</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_8_days" value="Wed Aug 12"><span>Wed</span><span class="day-date">Aug 12</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_8_days" value="Thu Aug 13"><span>Thu</span><span class="day-date">Aug 13</span></label>
-                <label class="day-opt"><input type="checkbox" name="week_8_days" value="Fri Aug 14"><span>Fri</span><span class="day-date">Aug 14</span></label>
+              <div class="opt-group">
+                <span class="opt-label">Pickup Time</span>
+                <div class="opt-radios">
+                  <label class="radio-row"><input type="radio" name="sfull_pickup" value="12:30pm"><span>12:30 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="sfull_pickup" value="3:00pm"><span>3:00 pm</span></label>
+                  <label class="radio-row"><input type="radio" name="sfull_pickup" value="5:00pm"><span>5:00 pm</span></label>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-      </div><!-- /weeks-list -->
+      </div>
     </div>
 
     <hr class="divider">
@@ -617,9 +512,9 @@ footer { background:#1e150a; color:rgba(255,255,255,0.5); padding:3rem 6vw;
 </div>
 
 <script>
-function toggleWeek(n) {
-  const card = document.getElementById('card-' + n);
-  const cb = document.getElementById('wk' + n);
+function toggleSession(n) {
+  const card = document.getElementById('sc' + n);
+  const cb = document.getElementById('st' + n);
   if (cb.checked) {
     card.classList.add('active');
   } else {
