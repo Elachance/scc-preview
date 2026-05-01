@@ -532,7 +532,7 @@
     <strong>California immunization requirements:</strong> All enrolled children must meet California state vaccine requirements before the first day of attendance. <a href="vaccines.html" style="color:var(--forest);">View requirements →</a>
   </div>
 
-  <form id="regForm" action="https://formspree.io/f/mdapllld" method="POST">
+  <form id="regForm" method="POST">
     <input type="hidden" name="_subject" value="Enrollment Registration — SCC">
 
     <!-- SECTION 1: Child Info -->
@@ -935,7 +935,7 @@
     <div class="check">🌿</div>
     <h2>Registration Received!</h2>
     <p>Thank you for registering with Silverado Children's Center. We'll be in touch soon to confirm availability and next steps.<br><br>
-    If you paid by Zelle, please make sure your payment has been sent to <strong>friendsofsilveradocc@gmail.com</strong> before your spot can be confirmed.</p>
+    If you paid by Zelle, please make sure your payment has been sent to <strong>scctuition123@gmail.com</strong> before your spot can be confirmed.</p>
   </div>
 
 </div>
@@ -976,4 +976,34 @@
   // Auto-fill today's date
   const sigDate = document.getElementById('sigDate');
   if (sigDate) sigDate.value = new Date().toISOString().split('T')[0];
+
+  // Form submission — POST to Cloudflare Worker, show inline success message
+  const WORKER_URL = 'https://scc-registration.mgglnclsprgrl.workers.dev';
+
+  document.getElementById('regForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+
+    try {
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        body: new FormData(this),
+      });
+      const result = await res.json();
+      if (result.success) {
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+        document.getElementById('successMsg').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        throw new Error(result.error || 'Submission failed');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Submit Registration';
+      alert('Something went wrong submitting your registration. Please try again or contact us at (714) 649-2214.');
+      console.error(err);
+    }
+  });
 </script></body></html>

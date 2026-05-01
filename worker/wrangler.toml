@@ -1,0 +1,11 @@
+name = "scc-registration"
+main = "src/index.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+RECIPIENT_EMAIL = "info@silveradochildrenscenter.com"
+
+# After deploying, run:
+#   wrangler secret put RESEND_API_KEY
+# and paste your Resend API key when prompted.
